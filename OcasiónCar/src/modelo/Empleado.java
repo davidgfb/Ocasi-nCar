@@ -10,10 +10,18 @@ package modelo;
  *
  * @author david
  */
-public class Empleado extends Cliente { //extiende a Cliente ya que tiene descuento en la compra
+public class Empleado extends Persona { 
+    String DNI, email;
+    int telefono;
     
-    
-    Empleado(String nombre, String clave) {
+    Empleado(String nombre, String DNI, String email, String clave, 
+            int telefono) {
         super(nombre, clave, 0.25);
+        this.DNI=DNI;
+        this.email=email;
+        this.telefono=telefono;
     }
+    
+    @Override
+    public String toString() {return "Empleado{"+super.toString()+"}";}
 }

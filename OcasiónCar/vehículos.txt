@@ -1,0 +1,40 @@
+Todoterreno{traccion: 2x4, combustible: Gasolina, cambio: manual, plazas: 5,
+matrícula: 9565FMY, marca: Toyota, modelo: Avensis, potencia: 300, color: Plata,
+matriculación: 25/06/1999, kilometraje: 250000, precio: 15000.0}
+
+Todoterreno{traccion: 2x4, combustible: Gasolina, cambio: manual, plazas: 5,
+matrícula: 9564FMY, marca: Toyota, modelo: Avensis, potencia: 300, color: Plata,
+matriculación: 25/06/1999, kilometraje: 250000, precio: 15000.0}
+
+Todoterreno{traccion: 4x4, combustible: Híbrido, cambio: manual, plazas: 5,
+matrícula: 9563FMY, marca: Tesla, modelo: Model, potencia: 500, color: Rojo,
+matriculación: 25/06/1999, kilometraje: 250000, precio: 15000.0}
+
+Turismo{puertas: 5, combustible: Eléctrico, cambio: automático, plazas: 5,
+matrícula: 0450GNZ, marca: Tesla, modelo: Model 3, potencia: 500, color: Rojo,
+matriculación: 17/05/2018, kilometraje: 0, precio: 30000.0}
+
+Turismo{puertas: 5, combustible: Eléctrico, cambio: automático, plazas: 5,
+matrícula: 0455GNZ, marca: Tesla, modelo: Model 3, potencia: 500, color: Rojo,
+matriculación: 17/05/2018, kilometraje: 0, precio: 30000.0}
+
+Turismo{puertas: 6, combustible: Diésel, cambio: automático, plazas: 5,
+matrícula: 0454GNZ, marca: Tesla, modelo: Model 3, potencia: 500, color: Rojo,
+matriculación: 17/05/2018, kilometraje: 0, precio: 30000.0}
+
+Motocicleta{tipo: ciclomotor, cilindrada: 50,
+matrícula: 0454GNZ, marca: Harley, modelo: Iron 883, potencia: 500, color: Blanco,
+matriculación: 17/05/2018, kilometraje: 0, precio: 50000.0}
+
+Motocicleta{tipo: sport, cilindrada: 100,
+matrícula: 0454GNZ, marca: Harley, modelo: Iron 883, potencia: 500, color: Blanco,
+matriculación: 17/05/2018, kilometraje: 0, precio: 50000.0}
+
+Motocicleta{tipo: custom, cilindrada: 150,
+matrícula: 0454GNZ, marca: Harley, modelo: Iron 883, potencia: 500, color: Blanco,
+matriculación: 17/05/2018, kilometraje: 0, precio: 50000.0}
+
+Motocicleta{tipo: cross, cilindrada: 250,
+matrícula: 0454GNZ, marca: Harley, modelo: Iron 883, potencia: 500, color: Blanco,
+matriculación: 17/05/2018, kilometraje: 0, precio: 50000.0}
+

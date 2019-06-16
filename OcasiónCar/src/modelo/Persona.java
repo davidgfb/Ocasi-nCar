@@ -12,8 +12,7 @@ package modelo;
  */
 public class Persona {
    String nombre, clave;
-   
-   double descuento=0;
+   double descuento;
     
     Persona(String nombre, String clave, double descuento) {
         this.nombre=nombre; //el nombre del objeto instanciado administrador o cliente sera el de persona
@@ -32,4 +31,8 @@ public class Persona {
     void sal() {
         
     }
+    
+    @Override
+    public String toString() {return "nombre: "+nombre+", clave: "+clave+
+            ", descuento: "+descuento;}
 }

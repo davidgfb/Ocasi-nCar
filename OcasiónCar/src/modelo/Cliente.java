@@ -1,7 +1,5 @@
 package modelo;
 
-import java.util.ArrayList;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,25 +10,21 @@ import java.util.ArrayList;
  *
  * @author david
  */
-public class Cliente extends Persona {
-    String DNI, email; //debemos los datos del cliente al registrarnos
+public abstract class Cliente extends Persona {
+    //relacionOcasiónCar: ninguna, empleado, familiar 
+    String DNI, email; //los datos del cliente al registrarse
     int telefono; 
-    
     Vehículo vehículo;
     
-    enum relacionOcasiónCar {ninguna, empleado, familiar}; 
-    String[] relacionConOcasiónCar = {"ninguna", "empleado", "familiar"};
-    
-    Cliente(String nombre, String clave, double descuento) {
-        super(nombre, clave, descuento); //le pasamos el nombre y clave del cliente al padre Persona
-    }
-    
-    ArrayList buscaVehículo(String marca, String modelo) {
+    //no borrar descuento (att interno)
+    Cliente(String nombre, String DNI, String email, String clave,
+            int telefono,double descuento) {super(nombre, clave, 
+                    descuento);} 
+
+    /*ArrayList buscaVehículo(String marca, String modelo) {
         return vehículo.getVehículos();
-    }
+    }*/
     
     @Override
-    public String toString() {
-        return "Cliente{}";
-    }
+    public String toString() {return super.toString();}
 }

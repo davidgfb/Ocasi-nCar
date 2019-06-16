@@ -1,0 +1,10 @@
+Administrador{DNI: 50516553D, email: admin@ocasioncar.com, telefono: 608401236, nombre: David, clave: admin, descuento: 0.25}
+
+Empleado{nombre: Hugo, clave: contraseña, descuento: 0.25}
+
+Empleado{nombre: Manuel, clave: pass, descuento: 0.25}
+
+Ninguna{nombre: Diego, clave: 1234, descuento: 0.0}
+
+Familiar{nombre: Nacho, clave: qwerty, descuento: 0.1}
+

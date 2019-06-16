@@ -1,7 +1,5 @@
 package modelo;
 
-import java.util.GregorianCalendar;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,14 +10,17 @@ import java.util.GregorianCalendar;
  *
  * @author david
  */
-/*public class Motocicleta extends Vehículo {
-    String[] tipos={"ciclomotor", "sport", "scooter", "custom", "cross", "trail"};
-    String tipo;
+public class Motocicleta extends Vehículo {
+    String tipo; //tipos: ciclomotor, sport, scooter, custom, cross, trail
     int cilindrada; 
     
-    Motocicleta(String tipo, int cilindrada, String matrícula, String marca, String modelo, int potencia, String color, GregorianCalendar fechaMatriculacion, int kilometraje, double precio) {
-        super(matrícula,marca,modelo,potencia,color,fechaMatriculacion,kilometraje,precio);
+    Motocicleta(String tipo, int cilindrada, String matrícula, String marca, String modelo, int potencia, String color, 
+            String matriculacion, int kilometraje, double precio) {
+        super(matrícula, marca, modelo, potencia, color, matriculacion, kilometraje, precio);
         this.tipo=tipo;
         this.cilindrada=cilindrada;
     }
-}*/
+    
+    @Override
+    public String toString() {return "Motocicleta{tipo: "+tipo+", cilindrada: "+cilindrada+super.toString()+"}";}
+}
