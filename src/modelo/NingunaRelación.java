@@ -9,9 +9,9 @@ package modelo;
  *
  * @author david
  */
-public class Ninguna extends Cliente {
+public class NingunaRelación extends Cliente {
     
-    Ninguna(String nombre, String DNI, String email, String clave, 
+    NingunaRelación(String nombre, String DNI, String email, String clave, 
             int telefono) {super(nombre, DNI, email, clave, telefono, 0);}
     
     @Override

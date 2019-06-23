@@ -19,7 +19,6 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
         //################# VEHÍCULOS ##################
         File archivo1 = new File("vehículos.txt");
         
@@ -80,7 +79,7 @@ public class Main {
                 "contraseña",608401237);
         Persona persona3 = new Empleado("Manuel","50516553F","m@m.es",
                 "pass",608401238);
-        Persona persona4 = new Ninguna("Diego","50516553G","d@d.org",
+        Persona persona4 = new NingunaRelación("Diego","50516553G","d@d.org",
                 "1234",608401239);
         Persona persona5 = new Familiar("Nacho","50516553H","n@n.pop",
                 "qwerty",608401230);
