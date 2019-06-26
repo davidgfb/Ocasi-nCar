@@ -1,26 +1,20 @@
 package grafico.administrador;
 
-import censouni.Alumno;
-import censouni.Persona;
-import censouni.Profesor;
-import censouni.UtilCenso;
 import java.time.LocalDate;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class AltaTurismo extends javax.swing.JFrame {
+public class Motocicleta extends javax.swing.JFrame {
 
     private JFrame principal;
     private String tipo = "";
-    private Persona per = null;
 
     /** Creates new form Altas */
-    public AltaTurismo(JFrame ventana) {
+    public Motocicleta(JFrame ventana) {
         initComponents();
         principal = ventana;
         principal.setVisible(false);
         this.setVisible(true);
-        jComboBoxTipo.setSelectedIndex(0);
     }
 
     /** This method is called from within the constructor to
@@ -33,9 +27,11 @@ public class AltaTurismo extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButtonAltas = new javax.swing.JButton();
+        aAlta = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jSpinner1 = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -47,41 +43,50 @@ public class AltaTurismo extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Alta Turismo");
+        jLabel1.setText("Alta Motocicleta");
 
-        jButtonAltas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButtonAltas.setText("Siguiente");
-        jButtonAltas.addActionListener(new java.awt.event.ActionListener() {
+        aAlta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        aAlta.setText("Siguiente");
+        aAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAltasActionPerformed(evt);
+                aAltaActionPerformed(evt);
             }
         });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grafico/OcasionCar_Logo.png"))); // NOI18N
 
-        jLabel3.setText("Puertas");
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ciclomotor", "Sport", "Scooter", "Custom", "Cross", "Trail" }));
+
+        jLabel3.setText("Tipo");
+
+        jLabel4.setText("Cilindrada");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(117, 117, 117))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(72, 72, 72)
                         .addComponent(jLabel1)
-                        .addGap(99, 99, 99)
+                        .addGap(75, 75, 75)
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(jLabel3))
+                        .addGap(99, 99, 99)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(21, 21, 21)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(140, 140, 140)
-                        .addComponent(jButtonAltas)))
+                        .addComponent(aAlta)))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -91,13 +96,17 @@ public class AltaTurismo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
-                .addGap(66, 66, 66)
+                .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
                     .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addComponent(jButtonAltas)
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(aAlta)
+                .addContainerGap(132, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(415, 425));
@@ -105,31 +114,9 @@ public class AltaTurismo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 //alta    
-private void jButtonAltasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAltasActionPerformed
-// TODO add your handling code here:
-    try {
-        String dni = panelDatosCU.getJTextFieldDni();
-        String nombre = panelDatosCU.getJTextFieldNom();
-        LocalDate fn = panelDatosCU.getjSpinnerFecha();
-        String dir = panelDatosCU.getJTextFieldDir();
-        long tfno = panelDatosCU.getjFormattedTextFieldTfno();
-        String var1 = panelDatosCU.getJTextFieldVar1();
-        String var2 = panelDatosCU.getJTextFieldVar2();
-        if (tipo.equals("Alumno")) {
-            per = new Alumno(dni, nombre, fn, dir, tfno, var1, var2);
-        } else {
-            per = new Profesor(dni, nombre, fn, dir, tfno, var1, Double.parseDouble(var2));
-        }
-        //lo insertamos en el array
-        if (UtilCenso.altaPersona(per)) {
-            JOptionPane.showMessageDialog(this, "Persona dada de alta.", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(this, "Error al dar de alta.", "Mensaje", JOptionPane.ERROR_MESSAGE);
-        }
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Excepción al dar de alta.", "Mensaje", JOptionPane.ERROR_MESSAGE);
-    }
-}//GEN-LAST:event_jButtonAltasActionPerformed
+private void aAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aAltaActionPerformed
+Alta alta1 = new Alta(this);
+}//GEN-LAST:event_aAltaActionPerformed
 
 private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
 // TODO add your handling code here:
@@ -137,10 +124,12 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     principal.setVisible(true);
 }//GEN-LAST:event_formWindowClosed
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAltas;
+    private javax.swing.JButton aAlta;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JSpinner jSpinner1;
     // End of variables declaration//GEN-END:variables
 }

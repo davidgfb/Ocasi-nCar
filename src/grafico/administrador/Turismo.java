@@ -4,13 +4,13 @@ import java.time.LocalDate;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class Baja extends javax.swing.JFrame {
+public class Turismo extends javax.swing.JFrame {
 
     private JFrame principal;
     private String tipo = "";
 
     /** Creates new form Altas */
-    public Baja(JFrame ventana) {
+    public Turismo(JFrame ventana) {
         initComponents();
         principal = ventana;
         principal.setVisible(false);
@@ -27,10 +27,10 @@ public class Baja extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        Baja = new javax.swing.JButton();
+        aAutomóvil = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        Matrícula = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Altas");
@@ -41,56 +41,57 @@ public class Baja extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Baja");
+        jLabel1.setText("Alta Turismo");
 
-        Baja.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Baja.setText("Baja");
-        Baja.addActionListener(new java.awt.event.ActionListener() {
+        aAutomóvil.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        aAutomóvil.setText("Siguiente");
+        aAutomóvil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BajaActionPerformed(evt);
+                aAutomóvilActionPerformed(evt);
             }
         });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grafico/OcasionCar_Logo.png"))); // NOI18N
 
-        jLabel3.setText("Matrícula");
+        jLabel3.setText("Puertas");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(117, 117, 117))
             .addGroup(layout.createSequentialGroup()
-                .addGap(101, 101, 101)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Baja, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
                         .addComponent(jLabel1)
-                        .addGap(87, 87, 87)
-                        .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(78, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(71, 71, 71)
-                .addComponent(Matrícula, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
+                        .addGap(99, 99, 99)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(116, 116, 116)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(aAutomóvil)))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addGap(66, 66, 66)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Matrícula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(103, 103, 103)
-                .addComponent(Baja)
-                .addGap(57, 57, 57))
+                    .addComponent(jLabel3)
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addComponent(aAutomóvil)
+                .addContainerGap(155, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(415, 425));
@@ -98,10 +99,10 @@ public class Baja extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 //alta    
-private void BajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BajaActionPerformed
+private void aAutomóvilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aAutomóvilActionPerformed
 // TODO add your handling code here:
-    System.out.println("Vehículo con matrícula "+Matrícula.getText()+" dado de baja");
-}//GEN-LAST:event_BajaActionPerformed
+    Automóvil automóvil1=new Automóvil(this);
+}//GEN-LAST:event_aAutomóvilActionPerformed
 
 private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
 // TODO add your handling code here:
@@ -109,10 +110,10 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     principal.setVisible(true);
 }//GEN-LAST:event_formWindowClosed
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Baja;
-    private javax.swing.JTextField Matrícula;
+    private javax.swing.JButton aAutomóvil;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JSpinner jSpinner1;
     // End of variables declaration//GEN-END:variables
 }

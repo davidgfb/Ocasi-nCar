@@ -1,5 +1,7 @@
 package modelo;
 
+import java.io.Serializable;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,7 +12,7 @@ package modelo;
  *
  * @author david
  */
-public abstract class Vehículo {
+public abstract class Vehículo implements Serializable {
     
     String matrícula, marca, modelo, color;
     int potencia, kilometraje;
@@ -30,6 +32,6 @@ public abstract class Vehículo {
     }
     
     @Override
-    public String toString() {return ",\nmatrícula: "+matrícula+", marca: "+marca+", modelo: "+modelo+", potencia: "+potencia+", color: "+color+
-                ",\nmatriculación: "+matriculacion+", kilometraje: "+kilometraje+", precio: "+precio;}
+    public String toString() {return ", matrícula: "+matrícula+", marca: "+marca+", modelo: "+modelo+", potencia: "+potencia+", color: "+color+
+                ", matriculación: "+matriculacion+", kilometraje: "+kilometraje+", precio: "+precio;}
 }

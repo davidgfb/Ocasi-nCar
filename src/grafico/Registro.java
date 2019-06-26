@@ -1,9 +1,5 @@
 package grafico;
 
-import censouni.Alumno;
-import censouni.Persona;
-import censouni.Profesor;
-import censouni.UtilCenso;
 import java.awt.HeadlessException;
 import java.io.IOException;
 import java.time.Instant;
@@ -21,9 +17,11 @@ public class Registro extends javax.swing.JFrame {
         initComponents();
         principal = ventana;
         principal.setVisible(false);
-        panelDatosCU.setEtiVar1("");
-        panelDatosCU.setEtiVar2("");
         this.setVisible(true);
+    }
+
+    Registro() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /** This method is called from within the constructor to
@@ -37,7 +35,7 @@ public class Registro extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButtonImprimir2 = new javax.swing.JButton();
+        Registra = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -46,6 +44,8 @@ public class Registro extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
+        etiquetaEmail = new javax.swing.JLabel();
+        email = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Búsquedas");
@@ -61,11 +61,11 @@ public class Registro extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grafico/OcasionCar_Logo.png"))); // NOI18N
 
-        jButtonImprimir2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButtonImprimir2.setText("Registrate");
-        jButtonImprimir2.addActionListener(new java.awt.event.ActionListener() {
+        Registra.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Registra.setText("Registrate");
+        Registra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonImprimir2ActionPerformed(evt);
+                RegistraActionPerformed(evt);
             }
         });
 
@@ -76,6 +76,8 @@ public class Registro extends javax.swing.JFrame {
         jLabel5.setText("Clave");
 
         jLabel6.setText("Teléfono");
+
+        etiquetaEmail.setText("email");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -90,20 +92,22 @@ public class Registro extends javax.swing.JFrame {
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(128, 128, 128)
-                        .addComponent(jButtonImprimir2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Registra, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(116, 116, 116)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel1)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel5))
+                            .addComponent(jLabel5)
+                            .addComponent(etiquetaEmail))
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField3)
                             .addComponent(jTextField2)
                             .addComponent(jTextField1)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(email))))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -130,8 +134,12 @@ public class Registro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(jButtonImprimir2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiquetaEmail)
+                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(Registra)
                 .addGap(35, 35, 35))
         );
 
@@ -144,37 +152,17 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     principal.setVisible(true);
 }//GEN-LAST:event_formWindowClosed
 
-    private void jButtonImprimir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImprimir2ActionPerformed
+    private void RegistraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistraActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonImprimir2ActionPerformed
+        System.out.println("Usuario añadido base datos");
+    }//GEN-LAST:event_RegistraActionPerformed
 
     /** Presenta los datos de una persona en el panel de datos */
-    private void presenta(Persona per) {
-        String tipo = per.getClass().getSimpleName();
-        panelDatosCU.setJTextFieldDni(per.getDni());
-        panelDatosCU.setJTextFieldNom(per.getNombre());
-        Instant instant = per.getFechaNac().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
-        Date fecha = Date.from(instant);
-        panelDatosCU.setjSpinnerFecha(fecha);
-        panelDatosCU.setJTextFieldDir(per.getDireccion());
-        panelDatosCU.setjFormattedTextFieldTfno(per.getTfno());
-
-        if (tipo.equals("Alumno")) {
-            Alumno alu = (Alumno) per;
-            panelDatosCU.setEtiVar1("TITULACIÓN");
-            panelDatosCU.setEtiVar2("ASIGNATURAS");
-            panelDatosCU.setJTextFieldVar1(alu.getTitulacion());
-            panelDatosCU.setJTextFieldVar2(alu.getAsignaturas());
-        } else {
-            Profesor pro = (Profesor) per;
-            panelDatosCU.setEtiVar1("DEPT.");
-            panelDatosCU.setEtiVar2("SUELDO");
-            panelDatosCU.setJTextFieldVar1(pro.getDepartamento());
-            panelDatosCU.setJTextFieldVar2("" + pro.getSueldo());
-        }
-    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonImprimir2;
+    private javax.swing.JButton Registra;
+    private javax.swing.JTextField email;
+    private javax.swing.JLabel etiquetaEmail;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

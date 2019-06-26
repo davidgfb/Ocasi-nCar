@@ -1,9 +1,5 @@
 package grafico;
 
-import censouni.Alumno;
-import censouni.Persona;
-import censouni.Profesor;
-import censouni.UtilCenso;
 import java.awt.HeadlessException;
 import java.io.IOException;
 import java.time.Instant;
@@ -21,8 +17,6 @@ public class Cliente extends javax.swing.JFrame {
         initComponents();
         principal = ventana;
         principal.setVisible(false);
-        panelDatosCU.setEtiVar1("");
-        panelDatosCU.setEtiVar2("");
         this.setVisible(true);
     }
 
@@ -36,9 +30,9 @@ public class Cliente extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jButtonImprimir = new javax.swing.JButton();
+        Compra = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        vehículos = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Búsquedas");
@@ -51,18 +45,18 @@ public class Cliente extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Cliente");
 
-        jButtonImprimir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButtonImprimir.setText("Compra");
-        jButtonImprimir.addActionListener(new java.awt.event.ActionListener() {
+        Compra.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Compra.setText("Compra");
+        Compra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonImprimirActionPerformed(evt);
+                CompraActionPerformed(evt);
             }
         });
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grafico/OcasionCar_Logo.png"))); // NOI18N
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vehículo1", "Vehículo2" }));
+        vehículos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vehículo1", "Vehículo2" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,12 +71,12 @@ public class Cliente extends javax.swing.JFrame {
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(155, 155, 155)
-                        .addComponent(jButtonImprimir)))
+                        .addComponent(Compra)))
                 .addContainerGap(40, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(vehículos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -94,12 +88,12 @@ public class Cliente extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addComponent(jLabel2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                .addComponent(jButtonImprimir)
+                .addComponent(Compra)
                 .addGap(114, 114, 114))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(vehículos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -112,61 +106,16 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     principal.setVisible(true);
 }//GEN-LAST:event_formWindowClosed
 
-private void jButtonImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImprimirActionPerformed
+private void CompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CompraActionPerformed
     // TODO add your handling code here:
-    String dni = panelDatosCU.getJTextFieldDni();
-    if (dni.equals("")) {
-        JOptionPane.showMessageDialog(this, "Rellene el DNI de la persona.", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-        return;
-    }
-
-    try {
-        //obtenemos la persona
-        Persona per = UtilCenso.consultaPersonaPorDni(dni);
-
-        if (per != null) {
-            presenta(per);           
-            UtilCenso.generaFicha(per);
-            JOptionPane.showMessageDialog(this, "Ficha de la persona generada: " + per.getDni() + ".txt", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            panelDatosCU.borrar();
-            JOptionPane.showMessageDialog(this, " Error: - Persona no encontrada - ", "Mensaje", JOptionPane.ERROR_MESSAGE);
-        }
-    } catch (IOException | HeadlessException e) {
-        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "Mensaje", JOptionPane.ERROR_MESSAGE);
-        System.out.println("Error: " + e.toString());
-    }
-}//GEN-LAST:event_jButtonImprimirActionPerformed
+    System.out.println("Vehículo "+vehículos.getSelectedItem()+" comprado. Gracias por su confianza!");
+}//GEN-LAST:event_CompraActionPerformed
 
     /** Presenta los datos de una persona en el panel de datos */
-    private void presenta(Persona per) {
-        String tipo = per.getClass().getSimpleName();
-        panelDatosCU.setJTextFieldDni(per.getDni());
-        panelDatosCU.setJTextFieldNom(per.getNombre());
-        Instant instant = per.getFechaNac().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
-        Date fecha = Date.from(instant);
-        panelDatosCU.setjSpinnerFecha(fecha);
-        panelDatosCU.setJTextFieldDir(per.getDireccion());
-        panelDatosCU.setjFormattedTextFieldTfno(per.getTfno());
-
-        if (tipo.equals("Alumno")) {
-            Alumno alu = (Alumno) per;
-            panelDatosCU.setEtiVar1("TITULACIÓN");
-            panelDatosCU.setEtiVar2("ASIGNATURAS");
-            panelDatosCU.setJTextFieldVar1(alu.getTitulacion());
-            panelDatosCU.setJTextFieldVar2(alu.getAsignaturas());
-        } else {
-            Profesor pro = (Profesor) per;
-            panelDatosCU.setEtiVar1("DEPT.");
-            panelDatosCU.setEtiVar2("SUELDO");
-            panelDatosCU.setJTextFieldVar1(pro.getDepartamento());
-            panelDatosCU.setJTextFieldVar2("" + pro.getSueldo());
-        }
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonImprimir;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton Compra;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JComboBox<String> vehículos;
     // End of variables declaration//GEN-END:variables
 }

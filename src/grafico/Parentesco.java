@@ -1,9 +1,5 @@
 package grafico;
 
-import censouni.Alumno;
-import censouni.Persona;
-import censouni.Profesor;
-import censouni.UtilCenso;
 import java.awt.HeadlessException;
 import java.io.IOException;
 import java.time.Instant;
@@ -21,8 +17,6 @@ public class Parentesco extends javax.swing.JFrame {
         initComponents();
         principal = ventana;
         principal.setVisible(false);
-        panelDatosCU.setEtiVar1("");
-        panelDatosCU.setEtiVar2("");
         this.setVisible(true);
     }
 
@@ -36,10 +30,10 @@ public class Parentesco extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jButtonImprimir = new javax.swing.JButton();
+        NingunaRelación = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jButtonImprimir1 = new javax.swing.JButton();
-        jButtonImprimir2 = new javax.swing.JButton();
+        Familiar = new javax.swing.JButton();
+        Amigo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Búsquedas");
@@ -52,30 +46,30 @@ public class Parentesco extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Cliente");
 
-        jButtonImprimir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButtonImprimir.setText("Ninguna relación");
-        jButtonImprimir.addActionListener(new java.awt.event.ActionListener() {
+        NingunaRelación.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        NingunaRelación.setText("Ninguna relación");
+        NingunaRelación.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonImprimirActionPerformed(evt);
+                NingunaRelaciónActionPerformed(evt);
             }
         });
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grafico/OcasionCar_Logo.png"))); // NOI18N
 
-        jButtonImprimir1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButtonImprimir1.setText("Familiar");
-        jButtonImprimir1.addActionListener(new java.awt.event.ActionListener() {
+        Familiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Familiar.setText("Familiar");
+        Familiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonImprimir1ActionPerformed(evt);
+                FamiliarActionPerformed(evt);
             }
         });
 
-        jButtonImprimir2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButtonImprimir2.setText("Amigo");
-        jButtonImprimir2.addActionListener(new java.awt.event.ActionListener() {
+        Amigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Amigo.setText("Amigo");
+        Amigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonImprimir2ActionPerformed(evt);
+                AmigoActionPerformed(evt);
             }
         });
 
@@ -93,10 +87,10 @@ public class Parentesco extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(129, 129, 129)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonImprimir2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Amigo, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jButtonImprimir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonImprimir1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(NingunaRelación, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Familiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -108,11 +102,11 @@ public class Parentesco extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addComponent(jLabel2)))
                 .addGap(44, 44, 44)
-                .addComponent(jButtonImprimir)
+                .addComponent(NingunaRelación)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonImprimir1)
+                .addComponent(Familiar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonImprimir2)
+                .addComponent(Amigo)
                 .addContainerGap(100, Short.MAX_VALUE))
         );
 
@@ -125,69 +119,27 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     principal.setVisible(true);
 }//GEN-LAST:event_formWindowClosed
 
-private void jButtonImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImprimirActionPerformed
+private void NingunaRelaciónActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NingunaRelaciónActionPerformed
     // TODO add your handling code here:
-    String dni = panelDatosCU.getJTextFieldDni();
-    if (dni.equals("")) {
-        JOptionPane.showMessageDialog(this, "Rellene el DNI de la persona.", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-        return;
-    }
+    Registro registro1=new Registro(this);
+}//GEN-LAST:event_NingunaRelaciónActionPerformed
 
-    try {
-        //obtenemos la persona
-        Persona per = UtilCenso.consultaPersonaPorDni(dni);
-
-        if (per != null) {
-            presenta(per);           
-            UtilCenso.generaFicha(per);
-            JOptionPane.showMessageDialog(this, "Ficha de la persona generada: " + per.getDni() + ".txt", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            panelDatosCU.borrar();
-            JOptionPane.showMessageDialog(this, " Error: - Persona no encontrada - ", "Mensaje", JOptionPane.ERROR_MESSAGE);
-        }
-    } catch (IOException | HeadlessException e) {
-        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "Mensaje", JOptionPane.ERROR_MESSAGE);
-        System.out.println("Error: " + e.toString());
-    }
-}//GEN-LAST:event_jButtonImprimirActionPerformed
-
-    private void jButtonImprimir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImprimir1ActionPerformed
+    private void FamiliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FamiliarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonImprimir1ActionPerformed
+        Registro registro1=new Registro(this);
+    }//GEN-LAST:event_FamiliarActionPerformed
 
-    private void jButtonImprimir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImprimir2ActionPerformed
+    private void AmigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonImprimir2ActionPerformed
+        Registro registro1=new Registro(this);
+    }//GEN-LAST:event_AmigoActionPerformed
 
     /** Presenta los datos de una persona en el panel de datos */
-    private void presenta(Persona per) {
-        String tipo = per.getClass().getSimpleName();
-        panelDatosCU.setJTextFieldDni(per.getDni());
-        panelDatosCU.setJTextFieldNom(per.getNombre());
-        Instant instant = per.getFechaNac().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
-        Date fecha = Date.from(instant);
-        panelDatosCU.setjSpinnerFecha(fecha);
-        panelDatosCU.setJTextFieldDir(per.getDireccion());
-        panelDatosCU.setjFormattedTextFieldTfno(per.getTfno());
-
-        if (tipo.equals("Alumno")) {
-            Alumno alu = (Alumno) per;
-            panelDatosCU.setEtiVar1("TITULACIÓN");
-            panelDatosCU.setEtiVar2("ASIGNATURAS");
-            panelDatosCU.setJTextFieldVar1(alu.getTitulacion());
-            panelDatosCU.setJTextFieldVar2(alu.getAsignaturas());
-        } else {
-            Profesor pro = (Profesor) per;
-            panelDatosCU.setEtiVar1("DEPT.");
-            panelDatosCU.setEtiVar2("SUELDO");
-            panelDatosCU.setJTextFieldVar1(pro.getDepartamento());
-            panelDatosCU.setJTextFieldVar2("" + pro.getSueldo());
-        }
-    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonImprimir;
-    private javax.swing.JButton jButtonImprimir1;
-    private javax.swing.JButton jButtonImprimir2;
+    private javax.swing.JButton Amigo;
+    private javax.swing.JButton Familiar;
+    private javax.swing.JButton NingunaRelación;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables

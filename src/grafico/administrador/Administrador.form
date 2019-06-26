@@ -94,21 +94,33 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Alta"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AltaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Veh&#xed;culos">
       <Properties>
         <Property name="text" type="java.lang.String" value="Veh&#xed;culos"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Veh&#xed;culosActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Baja">
       <Properties>
         <Property name="text" type="java.lang.String" value="Baja"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BajaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Ventas">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ventas"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VentasActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

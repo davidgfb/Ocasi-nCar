@@ -40,10 +40,10 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jButtonImprimir2" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
+                          <Component id="Amigo" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jButtonImprimir" max="32767" attributes="0"/>
-                              <Component id="jButtonImprimir1" max="32767" attributes="0"/>
+                              <Component id="NingunaRelación" max="32767" attributes="0"/>
+                              <Component id="Familiar" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -63,11 +63,11 @@
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-              <Component id="jButtonImprimir" min="-2" max="-2" attributes="0"/>
+              <Component id="NingunaRelación" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jButtonImprimir1" min="-2" max="-2" attributes="0"/>
+              <Component id="Familiar" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jButtonImprimir2" min="-2" max="-2" attributes="0"/>
+              <Component id="Amigo" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="100" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -80,7 +80,7 @@
         <Property name="text" type="java.lang.String" value="Cliente"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonImprimir">
+    <Component class="javax.swing.JButton" name="NingunaRelaci&#xf3;n">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="0"/>
@@ -88,7 +88,7 @@
         <Property name="text" type="java.lang.String" value="Ninguna relaci&#xf3;n"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonImprimirActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NingunaRelaci&#xf3;nActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
@@ -99,7 +99,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonImprimir1">
+    <Component class="javax.swing.JButton" name="Familiar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="0"/>
@@ -107,10 +107,10 @@
         <Property name="text" type="java.lang.String" value="Familiar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonImprimir1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FamiliarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonImprimir2">
+    <Component class="javax.swing.JButton" name="Amigo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="0"/>
@@ -118,7 +118,7 @@
         <Property name="text" type="java.lang.String" value="Amigo"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonImprimir2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AmigoActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

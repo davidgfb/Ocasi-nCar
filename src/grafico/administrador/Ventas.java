@@ -1,9 +1,5 @@
 package grafico.administrador;
 
-import censouni.Alumno;
-import censouni.Persona;
-import censouni.Profesor;
-import censouni.UtilCenso;
 import java.awt.HeadlessException;
 import java.io.IOException;
 import java.time.Instant;
@@ -21,8 +17,6 @@ public class Ventas extends javax.swing.JFrame {
         initComponents();
         principal = ventana;
         principal.setVisible(false);
-        panelDatosCU.setEtiVar1("");
-        panelDatosCU.setEtiVar2("");
         this.setVisible(true);
     }
 
@@ -96,30 +90,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 }//GEN-LAST:event_formWindowClosed
 
     /** Presenta los datos de una persona en el panel de datos */
-    private void presenta(Persona per) {
-        String tipo = per.getClass().getSimpleName();
-        panelDatosCU.setJTextFieldDni(per.getDni());
-        panelDatosCU.setJTextFieldNom(per.getNombre());
-        Instant instant = per.getFechaNac().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
-        Date fecha = Date.from(instant);
-        panelDatosCU.setjSpinnerFecha(fecha);
-        panelDatosCU.setJTextFieldDir(per.getDireccion());
-        panelDatosCU.setjFormattedTextFieldTfno(per.getTfno());
-
-        if (tipo.equals("Alumno")) {
-            Alumno alu = (Alumno) per;
-            panelDatosCU.setEtiVar1("TITULACIÓN");
-            panelDatosCU.setEtiVar2("ASIGNATURAS");
-            panelDatosCU.setJTextFieldVar1(alu.getTitulacion());
-            panelDatosCU.setJTextFieldVar2(alu.getAsignaturas());
-        } else {
-            Profesor pro = (Profesor) per;
-            panelDatosCU.setEtiVar1("DEPT.");
-            panelDatosCU.setEtiVar2("SUELDO");
-            panelDatosCU.setJTextFieldVar1(pro.getDepartamento());
-            panelDatosCU.setJTextFieldVar2("" + pro.getSueldo());
-        }
-    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;

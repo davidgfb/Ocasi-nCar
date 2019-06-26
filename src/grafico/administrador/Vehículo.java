@@ -1,26 +1,20 @@
 package grafico.administrador;
 
-import censouni.Alumno;
-import censouni.Persona;
-import censouni.Profesor;
-import censouni.UtilCenso;
 import java.time.LocalDate;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class TipoVehículo extends javax.swing.JFrame {
+public class Vehículo extends javax.swing.JFrame {
 
     private JFrame principal;
     private String tipo = "";
-    private Persona per = null;
 
     /** Creates new form Altas */
-    public TipoVehículo(JFrame ventana) {
+    public Vehículo(JFrame ventana) {
         initComponents();
         principal = ventana;
         principal.setVisible(false);
         this.setVisible(true);
-        jComboBoxTipo.setSelectedIndex(0);
     }
 
     /** This method is called from within the constructor to
@@ -33,10 +27,10 @@ public class TipoVehículo extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButtonAltas = new javax.swing.JButton();
+        Motocicleta = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButtonAltas1 = new javax.swing.JButton();
-        jButtonAltas2 = new javax.swing.JButton();
+        Todoterreno = new javax.swing.JButton();
+        Turismo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Altas");
@@ -49,29 +43,29 @@ public class TipoVehículo extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Alta");
 
-        jButtonAltas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButtonAltas.setText("Motocicleta");
-        jButtonAltas.addActionListener(new java.awt.event.ActionListener() {
+        Motocicleta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Motocicleta.setText("Motocicleta");
+        Motocicleta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAltasActionPerformed(evt);
+                MotocicletaActionPerformed(evt);
             }
         });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grafico/OcasionCar_Logo.png"))); // NOI18N
 
-        jButtonAltas1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButtonAltas1.setText("Todoterreno");
-        jButtonAltas1.addActionListener(new java.awt.event.ActionListener() {
+        Todoterreno.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Todoterreno.setText("Todoterreno");
+        Todoterreno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAltas1ActionPerformed(evt);
+                TodoterrenoActionPerformed(evt);
             }
         });
 
-        jButtonAltas2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButtonAltas2.setText("Turismo");
-        jButtonAltas2.addActionListener(new java.awt.event.ActionListener() {
+        Turismo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Turismo.setText("Turismo");
+        Turismo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAltas2ActionPerformed(evt);
+                TurismoActionPerformed(evt);
             }
         });
 
@@ -89,9 +83,9 @@ public class TipoVehículo extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(132, 132, 132)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonAltas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonAltas2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonAltas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(Todoterreno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Turismo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Motocicleta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(114, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -102,11 +96,11 @@ public class TipoVehículo extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(jButtonAltas)
+                .addComponent(Motocicleta)
                 .addGap(28, 28, 28)
-                .addComponent(jButtonAltas1)
+                .addComponent(Todoterreno)
                 .addGap(30, 30, 30)
-                .addComponent(jButtonAltas2)
+                .addComponent(Turismo)
                 .addGap(37, 37, 37))
         );
 
@@ -121,44 +115,25 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 }//GEN-LAST:event_formWindowClosed
 
 //alta    
-    private void jButtonAltasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAltasActionPerformed
+    private void MotocicletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MotocicletaActionPerformed
         // TODO add your handling code here:
-        try {
-            String dni = panelDatosCU.getJTextFieldDni();
-            String nombre = panelDatosCU.getJTextFieldNom();
-            LocalDate fn = panelDatosCU.getjSpinnerFecha();
-            String dir = panelDatosCU.getJTextFieldDir();
-            long tfno = panelDatosCU.getjFormattedTextFieldTfno();
-            String var1 = panelDatosCU.getJTextFieldVar1();
-            String var2 = panelDatosCU.getJTextFieldVar2();
-            if (tipo.equals("Alumno")) {
-                per = new Alumno(dni, nombre, fn, dir, tfno, var1, var2);
-            } else {
-                per = new Profesor(dni, nombre, fn, dir, tfno, var1, Double.parseDouble(var2));
-            }
-            //lo insertamos en el array
-            if (UtilCenso.altaPersona(per)) {
-                JOptionPane.showMessageDialog(this, "Persona dada de alta.", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(this, "Error al dar de alta.", "Mensaje", JOptionPane.ERROR_MESSAGE);
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Excepción al dar de alta.", "Mensaje", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_jButtonAltasActionPerformed
+        Motocicleta altaMotocicleta1=new Motocicleta(this);
+    }//GEN-LAST:event_MotocicletaActionPerformed
 
-    private void jButtonAltas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAltas1ActionPerformed
+    private void TodoterrenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodoterrenoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonAltas1ActionPerformed
+        Todoterreno todoterreno1=new Todoterreno(this);
+    }//GEN-LAST:event_TodoterrenoActionPerformed
 
-    private void jButtonAltas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAltas2ActionPerformed
+    private void TurismoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TurismoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonAltas2ActionPerformed
+        Turismo turismo1=new Turismo(this);
+    }//GEN-LAST:event_TurismoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAltas;
-    private javax.swing.JButton jButtonAltas1;
-    private javax.swing.JButton jButtonAltas2;
+    private javax.swing.JButton Motocicleta;
+    private javax.swing.JButton Todoterreno;
+    private javax.swing.JButton Turismo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

@@ -1,5 +1,9 @@
 package grafico;
 
+import grafico.administrador.Administrador;
+import java.util.Arrays;
+import modelo.Main;
+
 
 public class Inicio extends javax.swing.JFrame {
     
@@ -17,13 +21,13 @@ public class Inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        iniciaSesion = new javax.swing.JButton();
+        Registra = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        nombre = new javax.swing.JTextField();
+        clave = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -34,23 +38,23 @@ public class Inicio extends javax.swing.JFrame {
         });
         getContentPane().setLayout(null);
 
-        jButton2.setText("Inicia sesión");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        iniciaSesion.setText("Inicia sesión");
+        iniciaSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                iniciaSesionActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(120, 220, 160, 29);
+        getContentPane().add(iniciaSesion);
+        iniciaSesion.setBounds(120, 220, 160, 29);
 
-        jButton3.setText("Registrate");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Registra.setText("Registrame");
+        Registra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                RegistraActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3);
-        jButton3.setBounds(120, 260, 160, 29);
+        getContentPane().add(Registra);
+        Registra.setBounds(120, 260, 160, 29);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grafico/OcasionCar_Logo.png"))); // NOI18N
@@ -67,15 +71,21 @@ public class Inicio extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(90, 150, 70, 16);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                nombreActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(190, 150, 120, 26);
-        getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(190, 180, 120, 26);
+        getContentPane().add(nombre);
+        nombre.setBounds(190, 150, 120, 26);
+
+        clave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                claveActionPerformed(evt);
+            }
+        });
+        getContentPane().add(clave);
+        clave.setBounds(190, 180, 120, 26);
 
         setSize(new java.awt.Dimension(396, 342));
         setLocationRelativeTo(null);
@@ -87,20 +97,33 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     //BUSQUEDAS
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void RegistraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistraActionPerformed
 // TODO add your handling code here:
-        Cliente b = new Cliente(this);
-    }//GEN-LAST:event_jButton3ActionPerformed
-       
+        //Cliente b = new Cliente(this);
+        //Registro registro1 = new Registro(this);
+        Parentesco parentesco1=new Parentesco(this);
+    }//GEN-LAST:event_RegistraActionPerformed
+    
     //CONSULTAS
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-// TODO add your handling code here:
-        VentanaConsultas c = new VentanaConsultas(this);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void iniciaSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciaSesionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+        //VentanaConsultas c = new VentanaConsultas(this);
+        //############# Desactivado por pruebas ##############
+        if (nombre.getText().equalsIgnoreCase("admin@ocasioncar.com") && String.valueOf(clave.getPassword()).equals("admin")) { //la contraseña es sensible a minusculas y mayusculas
+            Administrador administrador1 = new Administrador(this);
+        }
+        /*else if (Main.getPersonas().contains(nombre)) {
+            
+        }*/
+    }//GEN-LAST:event_iniciaSesionActionPerformed
+
+    private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombreActionPerformed
+
+    private void claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_claveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_claveActionPerformed
 
    
     /**
@@ -116,13 +139,13 @@ public class Inicio extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton Registra;
+    private javax.swing.JPasswordField clave;
+    private javax.swing.JButton iniciaSesion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField nombre;
     // End of variables declaration//GEN-END:variables
    
 }

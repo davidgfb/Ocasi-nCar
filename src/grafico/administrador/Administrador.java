@@ -1,9 +1,6 @@
 package grafico.administrador;
 
-import censouni.Alumno;
-import censouni.Persona;
-import censouni.Profesor;
-import censouni.UtilCenso;
+import grafico.Cliente;
 import java.time.LocalDate;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -12,7 +9,6 @@ public class Administrador extends javax.swing.JFrame {
 
     private JFrame principal;
     private String tipo = "";
-    private Persona per = null;
 
     /** Creates new form Altas */
     public Administrador(JFrame ventana) {
@@ -20,7 +16,6 @@ public class Administrador extends javax.swing.JFrame {
         principal = ventana;
         principal.setVisible(false);
         this.setVisible(true);
-        jComboBoxTipo.setSelectedIndex(0);
     }
 
     /** This method is called from within the constructor to
@@ -52,12 +47,32 @@ public class Administrador extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grafico/OcasionCar_Logo.png"))); // NOI18N
 
         Alta.setText("Alta");
+        Alta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AltaActionPerformed(evt);
+            }
+        });
 
         Vehículos.setText("Vehículos");
+        Vehículos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VehículosActionPerformed(evt);
+            }
+        });
 
         Baja.setText("Baja");
+        Baja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BajaActionPerformed(evt);
+            }
+        });
 
         Ventas.setText("Ventas");
+        Ventas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VentasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,6 +124,27 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     //Volvemos a mostrar la ventana principal
     principal.setVisible(true);
 }//GEN-LAST:event_formWindowClosed
+
+    private void AltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AltaActionPerformed
+        // TODO add your handling code here:
+        //Alta alta1=new Alta(this);
+        Vehículo tipovehículo1 = new Vehículo(this);
+    }//GEN-LAST:event_AltaActionPerformed
+
+    private void VehículosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VehículosActionPerformed
+        // TODO add your handling code here:
+        Cliente cliente1=new Cliente(this);
+    }//GEN-LAST:event_VehículosActionPerformed
+
+    private void BajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BajaActionPerformed
+        // TODO add your handling code here:
+        Baja baja1=new Baja(this);
+    }//GEN-LAST:event_BajaActionPerformed
+
+    private void VentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VentasActionPerformed
+        // TODO add your handling code here:
+        Ventas ventas1=new Ventas(this);
+    }//GEN-LAST:event_VentasActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Alta;

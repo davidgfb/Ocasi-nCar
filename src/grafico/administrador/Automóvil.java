@@ -1,9 +1,5 @@
 package grafico.administrador;
 
-import censouni.Alumno;
-import censouni.Persona;
-import censouni.Profesor;
-import censouni.UtilCenso;
 import java.time.LocalDate;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -12,7 +8,6 @@ public class Automóvil extends javax.swing.JFrame {
 
     private JFrame principal;
     private String tipo = "";
-    private Persona per = null;
 
     /** Creates new form Altas */
     public Automóvil(JFrame ventana) {
@@ -20,7 +15,6 @@ public class Automóvil extends javax.swing.JFrame {
         principal = ventana;
         principal.setVisible(false);
         this.setVisible(true);
-        jComboBoxTipo.setSelectedIndex(0);
     }
 
     /** This method is called from within the constructor to
@@ -33,7 +27,7 @@ public class Automóvil extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButtonAltas = new javax.swing.JButton();
+        aAlta = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -51,13 +45,13 @@ public class Automóvil extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Alta Turismo");
+        jLabel1.setText("Automóvil");
 
-        jButtonAltas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButtonAltas.setText("Siguiente");
-        jButtonAltas.addActionListener(new java.awt.event.ActionListener() {
+        aAlta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        aAlta.setText("Siguiente");
+        aAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAltasActionPerformed(evt);
+                aAltaActionPerformed(evt);
             }
         });
 
@@ -86,7 +80,7 @@ public class Automóvil extends javax.swing.JFrame {
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(140, 140, 140)
-                        .addComponent(jButtonAltas))
+                        .addComponent(aAlta))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -104,7 +98,7 @@ public class Automóvil extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,7 +120,7 @@ public class Automóvil extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(73, 73, 73)
-                .addComponent(jButtonAltas)
+                .addComponent(aAlta)
                 .addGap(40, 40, 40))
         );
 
@@ -135,31 +129,10 @@ public class Automóvil extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 //alta    
-private void jButtonAltasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAltasActionPerformed
+private void aAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aAltaActionPerformed
 // TODO add your handling code here:
-    try {
-        String dni = panelDatosCU.getJTextFieldDni();
-        String nombre = panelDatosCU.getJTextFieldNom();
-        LocalDate fn = panelDatosCU.getjSpinnerFecha();
-        String dir = panelDatosCU.getJTextFieldDir();
-        long tfno = panelDatosCU.getjFormattedTextFieldTfno();
-        String var1 = panelDatosCU.getJTextFieldVar1();
-        String var2 = panelDatosCU.getJTextFieldVar2();
-        if (tipo.equals("Alumno")) {
-            per = new Alumno(dni, nombre, fn, dir, tfno, var1, var2);
-        } else {
-            per = new Profesor(dni, nombre, fn, dir, tfno, var1, Double.parseDouble(var2));
-        }
-        //lo insertamos en el array
-        if (UtilCenso.altaPersona(per)) {
-            JOptionPane.showMessageDialog(this, "Persona dada de alta.", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(this, "Error al dar de alta.", "Mensaje", JOptionPane.ERROR_MESSAGE);
-        }
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Excepción al dar de alta.", "Mensaje", JOptionPane.ERROR_MESSAGE);
-    }
-}//GEN-LAST:event_jButtonAltasActionPerformed
+    Alta alta1=new Alta(this);
+}//GEN-LAST:event_aAltaActionPerformed
 
 private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
 // TODO add your handling code here:
@@ -167,7 +140,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     principal.setVisible(true);
 }//GEN-LAST:event_formWindowClosed
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAltas;
+    private javax.swing.JButton aAlta;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
