@@ -1,12 +1,9 @@
 package grafico.administrador;
 
-import java.awt.HeadlessException;
-import java.io.IOException;
-import java.time.Instant;
-import java.time.ZoneId;
-import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import modelo.Fichero;
 
 public class Ventas extends javax.swing.JFrame {
 
@@ -18,6 +15,12 @@ public class Ventas extends javax.swing.JFrame {
         principal = ventana;
         principal.setVisible(false);
         this.setVisible(true);
+        try {
+            ventas.setModel(new DefaultComboBoxModel(Fichero.getVehículos().toArray()));
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Excepción: no hay ventas cargadas", "Mensaje", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /** This method is called from within the constructor to
@@ -31,7 +34,7 @@ public class Ventas extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        ventas = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Búsquedas");
@@ -47,7 +50,7 @@ public class Ventas extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grafico/OcasionCar_Logo.png"))); // NOI18N
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Venta1", "Venta2" }));
+        ventas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Venta1", "Venta2" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -62,7 +65,7 @@ public class Ventas extends javax.swing.JFrame {
                         .addComponent(jLabel3))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(157, 157, 157)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(ventas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -76,7 +79,7 @@ public class Ventas extends javax.swing.JFrame {
                         .addGap(23, 23, 23)
                         .addComponent(jLabel2)))
                 .addGap(79, 79, 79)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ventas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(155, Short.MAX_VALUE))
         );
 
@@ -92,8 +95,8 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     /** Presenta los datos de una persona en el panel de datos */
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JComboBox<String> ventas;
     // End of variables declaration//GEN-END:variables
 }

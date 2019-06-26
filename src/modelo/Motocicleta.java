@@ -14,7 +14,7 @@ public class Motocicleta extends Vehículo {
     String tipo; //tipos: ciclomotor, sport, scooter, custom, cross, trail
     int cilindrada; 
     
-    Motocicleta(String tipo, int cilindrada, String matrícula, String marca, String modelo, int potencia, String color, 
+    public Motocicleta(String tipo, int cilindrada, String matrícula, String marca, String modelo, int potencia, String color, 
             String matriculacion, int kilometraje, double precio) {
         super(matrícula, marca, modelo, potencia, color, matriculacion, kilometraje, precio);
         this.tipo=tipo;

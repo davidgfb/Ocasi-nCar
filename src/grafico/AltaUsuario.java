@@ -1,27 +1,23 @@
 package grafico;
 
-import java.awt.HeadlessException;
-import java.io.IOException;
-import java.time.Instant;
-import java.time.ZoneId;
-import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import modelo.Empleado;
+import modelo.Familiar;
+import modelo.Fichero;
+import modelo.NingunaRelación;
+import modelo.Persona;
 
-public class Registro extends javax.swing.JFrame {
+public class AltaUsuario extends javax.swing.JFrame {
 
     private JFrame principal;
 
     /** Creates new form Busquedas */
-    public Registro(JFrame ventana) {
+    public AltaUsuario(JFrame ventana) {
         initComponents();
         principal = ventana;
         principal.setVisible(false);
         this.setVisible(true);
-    }
-
-    Registro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /** This method is called from within the constructor to
@@ -40,12 +36,13 @@ public class Registro extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        DNI = new javax.swing.JTextField();
+        Nombre = new javax.swing.JTextField();
+        Clave = new javax.swing.JPasswordField();
         etiquetaEmail = new javax.swing.JLabel();
         email = new javax.swing.JTextField();
+        Relación = new javax.swing.JComboBox<>();
+        Teléfono = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Búsquedas");
@@ -79,6 +76,8 @@ public class Registro extends javax.swing.JFrame {
 
         etiquetaEmail.setText("email");
 
+        Relación.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Empleado", "Familiar", "NingunaRelación" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,9 +85,15 @@ public class Registro extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(115, 115, 115)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(115, 115, 115))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(120, Short.MAX_VALUE)
+                                .addComponent(Relación, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(128, 128, 128)
@@ -103,37 +108,41 @@ public class Registro extends javax.swing.JFrame {
                             .addComponent(etiquetaEmail))
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField1)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(email))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                            .addComponent(Nombre)
+                            .addComponent(DNI)
+                            .addComponent(Clave, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                            .addComponent(email)
+                            .addComponent(Teléfono))))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(jLabel2)))
-                .addGap(32, 32, 32)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Relación, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Clave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Teléfono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiquetaEmail)
@@ -153,14 +162,41 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 }//GEN-LAST:event_formWindowClosed
 
     private void RegistraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistraActionPerformed
-        // TODO add your handling code here:
-        System.out.println("Usuario añadido base datos");
+        try {// TODO add your handling code here:
+        //System.out.println("Usuario añadido base datos");
+            Fichero fichero1=new Fichero();
+            Persona persona1 = null;
+            
+                if (Relación.getSelectedItem().toString().equalsIgnoreCase("Empleado")) {
+                    persona1=new Empleado(Nombre.getText(),DNI.getText(),email.getText(),Clave.getPassword().toString(),(Integer) Teléfono.getValue());
+                }
+                else if (Relación.getSelectedItem().toString().equalsIgnoreCase("Familiar")) {
+                    persona1=new Familiar(Nombre.getText(),DNI.getText(),email.getText(),Clave.getPassword().toString(),(Integer) Teléfono.getValue());
+                }
+                else if (Relación.getSelectedItem().toString().equalsIgnoreCase("NingunaRelación")) {
+                    persona1=new NingunaRelación(Nombre.getText(),DNI.getText(),email.getText(),Clave.getPassword().toString(),(Integer) Teléfono.getValue());
+                }
+                if (fichero1.altaPersona(persona1)) {
+                    JOptionPane.showMessageDialog(this, "Persona dada de alta.", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Error al dar de alta.", "Mensaje", JOptionPane.ERROR_MESSAGE);
+                }
+                //fichero1.guarda(fichero1.getPersonas(),"Personas");
+            
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Excepción al dar de alta.", "Mensaje", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_RegistraActionPerformed
-
     /** Presenta los datos de una persona en el panel de datos */
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField Clave;
+    private javax.swing.JTextField DNI;
+    private javax.swing.JTextField Nombre;
     private javax.swing.JButton Registra;
+    private javax.swing.JComboBox<String> Relación;
+    private javax.swing.JSpinner Teléfono;
     private javax.swing.JTextField email;
     private javax.swing.JLabel etiquetaEmail;
     private javax.swing.JLabel jLabel1;
@@ -169,9 +205,5 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

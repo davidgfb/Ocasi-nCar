@@ -33,6 +33,7 @@
         <Property name="text" type="java.lang.String" value="Inicia sesi&#xf3;n"/>
       </Properties>
       <Events>
+        <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="iniciaSesionAncestorAdded"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="iniciaSesionActionPerformed"/>
       </Events>
       <Constraints>

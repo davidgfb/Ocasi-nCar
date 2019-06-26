@@ -3,6 +3,7 @@ package grafico.administrador;
 import java.time.LocalDate;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import modelo.Fichero;
 
 public class Baja extends javax.swing.JFrame {
 
@@ -100,7 +101,12 @@ public class Baja extends javax.swing.JFrame {
 //alta    
 private void BajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BajaActionPerformed
 // TODO add your handling code here:
-    System.out.println("Vehículo con matrícula "+Matrícula.getText()+" dado de baja");
+    try {
+    Fichero.bajaVehículo(Matrícula.getText());
+    }
+    catch (Exception e){
+        JOptionPane.showMessageDialog(this, "Excepción: no hay vehículos con esa matrícula cargados", "Mensaje", JOptionPane.ERROR_MESSAGE);
+    }
 }//GEN-LAST:event_BajaActionPerformed
 
 private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed

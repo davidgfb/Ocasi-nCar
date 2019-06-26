@@ -13,7 +13,7 @@ package modelo;
 public class Turismo extends Automóvil {
     int puertas;
             
-    Turismo(int puertas, String combustible, String cambio, int plazas, String matrícula, String marca, String modelo, int potencia, String color, 
+    public Turismo(int puertas, String combustible, String cambio, int plazas, String matrícula, String marca, String modelo, int potencia, String color, 
             String matriculacion, int kilometraje, double precio) {
         super(combustible, cambio, plazas, matrícula, marca, modelo, potencia, color, matriculacion, kilometraje, precio);
         this.puertas=puertas;

@@ -1,8 +1,5 @@
 package modelo;
 
-
-import java.util.GregorianCalendar;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,8 +11,8 @@ import java.util.GregorianCalendar;
  * @author david
  */
 public class Venta {
-    GregorianCalendar fechaVenta; 
-    String datosVehículo, datosCliente; //datosCliente y datosVehiculo guardan toString     
+    
+    String datosVehículo, datosCliente,fechaVenta; //datosCliente y datosVehiculo guardan toString     
             
     Venta(String datosVehículo, String datosCliente) {
         this.datosVehículo=datosVehículo;

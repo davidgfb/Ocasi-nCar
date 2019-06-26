@@ -13,7 +13,7 @@ package modelo;
 public class Todoterreno extends Automóvil {
     String tracción; //traccion 4x2 o 4x4
     
-    Todoterreno(String tracción, String combustible, String cambio, int plazas, String matrícula, String marca, String modelo, 
+    public Todoterreno(String tracción, String combustible, String cambio, int plazas, String matrícula, String marca, String modelo, 
             int potencia, String color, String matriculacion, int kilometraje, double precio) {
         super(combustible, cambio, plazas, matrícula, marca, modelo, potencia, color, matriculacion, kilometraje, precio);
         this.tracción=tracción;

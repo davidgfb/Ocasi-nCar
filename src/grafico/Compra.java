@@ -1,23 +1,29 @@
 package grafico;
 
-import java.awt.HeadlessException;
-import java.io.IOException;
-import java.time.Instant;
-import java.time.ZoneId;
-import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import modelo.Fichero;
 
-public class Cliente extends javax.swing.JFrame {
+public class Compra extends javax.swing.JFrame {
 
     private JFrame principal;
 
     /** Creates new form Busquedas */
-    public Cliente(JFrame ventana) {
+    public Compra(JFrame ventana,boolean esAdministrador) {
         initComponents();
         principal = ventana;
         principal.setVisible(false);
         this.setVisible(true);
+        if (esAdministrador) {
+            Compra.setVisible(false);
+        }
+        try {
+            vehículos.setModel(new DefaultComboBoxModel(Fichero.getVehículos().toArray()));
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Excepción: no hay coches cargados", "Mensaje", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /** This method is called from within the constructor to
@@ -108,7 +114,8 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 
 private void CompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CompraActionPerformed
     // TODO add your handling code here:
-    System.out.println("Vehículo "+vehículos.getSelectedItem()+" comprado. Gracias por su confianza!");
+    //System.out.println("Vehículo "+vehículos.getSelectedItem()+" comprado. Gracias por su confianza!");
+    System.out.println("borra vehículo adquirido");
 }//GEN-LAST:event_CompraActionPerformed
 
     /** Presenta los datos de una persona en el panel de datos */

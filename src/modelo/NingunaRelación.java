@@ -11,8 +11,7 @@ package modelo;
  */
 public class NingunaRelación extends Cliente {
     
-    NingunaRelación(String nombre, String DNI, String email, String clave, 
-            int telefono) {super(nombre, DNI, email, clave, telefono, 0);}
+    public NingunaRelación(String nombre, String DNI, String email, String clave,int telefono) {super(nombre, DNI, email, clave, telefono, 0);}
     
     @Override
     public String toString() {return "Ninguna{"+super.toString()+"}";}

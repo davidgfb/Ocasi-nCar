@@ -1,6 +1,6 @@
 package grafico.administrador;
 
-import grafico.Cliente;
+import grafico.Compra;
 import java.time.LocalDate;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -128,12 +128,12 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private void AltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AltaActionPerformed
         // TODO add your handling code here:
         //Alta alta1=new Alta(this);
-        Vehículo tipovehículo1 = new Vehículo(this);
+        AltaVehículo tipovehículo1 = new AltaVehículo(this);
     }//GEN-LAST:event_AltaActionPerformed
 
     private void VehículosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VehículosActionPerformed
         // TODO add your handling code here:
-        Cliente cliente1=new Cliente(this);
+        Compra cliente1=new Compra(this,true);
     }//GEN-LAST:event_VehículosActionPerformed
 
     private void BajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BajaActionPerformed

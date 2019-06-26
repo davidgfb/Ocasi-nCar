@@ -11,12 +11,11 @@ package modelo;
  * @author david
  */
 public class Administrador extends Persona {
-    String DNI,email="admin@ocasioncar.com";
+    String email="admin@ocasioncar.com";
     int telefono;
     //le pasamos el nombre y clave del administrador al padre Persona
     Administrador(String nombre, String DNI, int telefono) {
-        super(nombre,"admin",0.25);
-        this.DNI=DNI;
+        super(nombre,"admin",0.25,DNI);
         this.telefono=telefono;
     }
     

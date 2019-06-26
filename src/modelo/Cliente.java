@@ -12,14 +12,12 @@ package modelo;
  */
 public abstract class Cliente extends Persona {
     //relacionOcasiónCar: ninguna, empleado, familiar 
-    String DNI, email; //los datos del cliente al registrarse
+    String email; //los datos del cliente al registrarse
     int telefono; 
     Vehículo vehículo;
     
     //no borrar descuento (att interno)
-    Cliente(String nombre, String DNI, String email, String clave,
-            int telefono,double descuento) {super(nombre, clave, 
-                    descuento);} 
+    Cliente(String nombre, String DNI, String email, String clave,int telefono,double descuento) {super(nombre, clave,descuento,DNI);} 
 
     /*ArrayList buscaVehículo(String marca, String modelo) {
         return vehículo.getVehículos();

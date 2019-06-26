@@ -11,8 +11,7 @@ package modelo;
  * @author david
  */
 public class Familiar extends Cliente { //extiende a Cliente ya que tiene descuento en la compra
-    Familiar(String nombre, String DNI, String email, String clave, 
-            int telefono) {super(nombre, DNI, email, clave, telefono, 0.1);}
+    public Familiar(String nombre, String DNI, String email, String clave,int telefono) {super(nombre, DNI, email, clave, telefono, 0.1);}
     
     @Override
     public String toString() {return "Familiar{"+super.toString()+"}";}

@@ -14,14 +14,15 @@ import java.util.ArrayList;
  * @author david
  */
 public class Persona implements Serializable {
-   String nombre, clave;
+   String DNI, nombre, clave;
    double descuento;
    ArrayList personas;
     
-    Persona(String nombre, String clave, double descuento) {
+    Persona(String nombre, String clave, double descuento, String DNI) {
         this.nombre=nombre; //el nombre del objeto instanciado administrador o cliente sera el de persona
         this.clave=clave;
         this.descuento=descuento;
+        this.DNI=DNI;
     }
     
     public ArrayList getPersonas() {
@@ -31,19 +32,7 @@ public class Persona implements Serializable {
     void setPersonas(ArrayList personas) {
         personas=this.personas;
     }
-    
-    void compraVehículo() {
-        
-    }
-    
-    void busca() {
-        
-    }
-    
-    void sal() {
-        
-    }
-    
+       
     @Override
     public String toString() {return "nombre: "+nombre+", clave: "+clave+", descuento: "+descuento;}
 }

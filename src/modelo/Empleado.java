@@ -11,13 +11,11 @@ package modelo;
  * @author david
  */
 public class Empleado extends Persona { 
-    String DNI, email;
+    String email;
     int telefono;
     
-    Empleado(String nombre, String DNI, String email, String clave, 
-            int telefono) {
-        super(nombre, clave, 0.25);
-        this.DNI=DNI;
+    public Empleado(String nombre, String DNI, String email, String clave,int telefono) {
+        super(nombre, clave, 0.25, DNI);
         this.email=email;
         this.telefono=telefono;
     }

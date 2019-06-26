@@ -1,8 +1,7 @@
 package grafico;
 
 import grafico.administrador.Administrador;
-import java.util.Arrays;
-import modelo.Main;
+import modelo.Fichero;
 
 
 public class Inicio extends javax.swing.JFrame {
@@ -39,6 +38,15 @@ public class Inicio extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         iniciaSesion.setText("Inicia sesión");
+        iniciaSesion.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                iniciaSesionAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         iniciaSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 iniciaSesionActionPerformed(evt);
@@ -94,6 +102,10 @@ public class Inicio extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
 // TODO add your handling code here:
         //UtilCenso.guardarDatos();
+        Fichero.guardaPersonas();
+        Fichero.guardaVehículos();
+        Fichero.guardaVentas();
+        
     }//GEN-LAST:event_formWindowClosing
 
     //BUSQUEDAS
@@ -101,20 +113,28 @@ public class Inicio extends javax.swing.JFrame {
 // TODO add your handling code here:
         //Cliente b = new Cliente(this);
         //Registro registro1 = new Registro(this);
-        Parentesco parentesco1=new Parentesco(this);
+        AltaUsuario registro1=new AltaUsuario(this);
     }//GEN-LAST:event_RegistraActionPerformed
     
     //CONSULTAS
     private void iniciaSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciaSesionActionPerformed
         // TODO add your handling code here:
-        //VentanaConsultas c = new VentanaConsultas(this);
         //############# Desactivado por pruebas ##############
-        if (nombre.getText().equalsIgnoreCase("admin@ocasioncar.com") && String.valueOf(clave.getPassword()).equals("admin")) { //la contraseña es sensible a minusculas y mayusculas
+        String[][] personas={{"Hugo","contraseña"},{"Manuel","pass"},{"Diego","1234"},{"Nacho","qwerty"}};
+        /*if (nombre.getText().equalsIgnoreCase("admin@ocasioncar.com") && String.valueOf(clave.getPassword()).equals("admin")) { //la contraseña es sensible a minusculas y mayusculas
             Administrador administrador1 = new Administrador(this);
+            System.out.println("Bienvenido admin!");
         }
-        /*else if (Main.getPersonas().contains(nombre)) {
-            
-        }*/
+        
+        else {
+            for (String[] persona : personas) {
+                if (nombre.getText().equalsIgnoreCase(persona[0]) && String.valueOf(clave.getPassword()).equals(persona[1])) {
+        */
+                    Compra compra1=new Compra(this,false);
+                /*}
+            }
+        }
+        */
     }//GEN-LAST:event_iniciaSesionActionPerformed
 
     private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
@@ -124,6 +144,10 @@ public class Inicio extends javax.swing.JFrame {
     private void claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_claveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_claveActionPerformed
+
+    private void iniciaSesionAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_iniciaSesionAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_iniciaSesionAncestorAdded
 
    
     /**
