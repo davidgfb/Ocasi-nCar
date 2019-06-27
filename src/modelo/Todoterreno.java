@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package clases;
+package modelo;
 
-import clases.Automovil;
+import modelo.Automovil;
 import java.io.Serializable;
 import javax.swing.Icon;
 

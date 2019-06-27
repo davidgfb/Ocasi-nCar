@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaz;
+package grafico.administrador;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import clases.Empresa;
-import clases.Turismo;
+import modelo.Empresa;
+import modelo.Turismo;
 
 /**
  * interfaz para dar de alta un turismo

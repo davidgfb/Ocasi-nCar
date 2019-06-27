@@ -3,20 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaz;
+package grafico.administrador;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import clases.Cliente;
-import clases.Empresa;
+import modelo.Cliente;
+import modelo.Empresa;
 
 /**
  * interfaz para dar de alta un usuario
  *
  * @author david
  */
-public class Registro_usuario extends javax.swing.JFrame {
+public class Altausuario extends javax.swing.JFrame {
 
     //campos
 
@@ -30,7 +30,7 @@ public class Registro_usuario extends javax.swing.JFrame {
      *
      * @param e empresa con la que trabajamos
      */
-    public Registro_usuario(Empresa e) {
+    public Altausuario(Empresa e) {
         this.e = e;
         initComponents();
         this.setTitle("Nuevo usuario");

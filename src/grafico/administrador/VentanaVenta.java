@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaz;
+package grafico.administrador;
 
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import clases.Empresa;
-import clases.Venta;
+import modelo.Empresa;
+import modelo.Venta;
 
 /**
  * interfaz para visualizar las ventas realizadas filtrandolas por fecha si se
@@ -19,7 +19,7 @@ import clases.Venta;
  *
  * @author david
  */
-public class Ventas extends javax.swing.JFrame {
+public class VentanaVenta extends javax.swing.JFrame {
 //campos
 
     private ArrayList<Venta> mostrarVentas;
@@ -34,7 +34,7 @@ public class Ventas extends javax.swing.JFrame {
      *
      * @param e empresa con la que estamos trabajando
      */
-    public Ventas(Empresa e) {
+    public VentanaVenta(Empresa e) {
         initComponents();
         this.e = e;
         Image icon = new ImageIcon(getClass().getResource("logo.png")).getImage();

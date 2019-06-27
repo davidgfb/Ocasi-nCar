@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaz;
+package grafico;
 
-import interfaz.BuscarVehiculo;
+import grafico.administrador.Altausuario;
+import grafico.administrador.Administrador;
+import grafico.BuscaVehiculo;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import clases.Empresa;
+import modelo.Empresa;
 
 /**
  * interfaz para loggear o para registrase como usuario
@@ -123,7 +125,7 @@ public class Menu extends javax.swing.JFrame {
      * @param evt
      */
     private void nuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoUsuarioActionPerformed
-        Registro_usuario rg = new Registro_usuario(this.e);
+        Altausuario rg = new Altausuario(this.e);
         rg.setVisible(true);
     }//GEN-LAST:event_nuevoUsuarioActionPerformed
 //fin dek metodo
@@ -136,11 +138,11 @@ public class Menu extends javax.swing.JFrame {
      */
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         if (txt_usuario.getText().equals("admin@ocasioncar.com") && (txt_contraseña.getText().equals("admin"))) {
-            VentanaAdmin rg = new VentanaAdmin(this.e);
+            Administrador rg = new Administrador(this.e);
             rg.setVisible(true);
         } else if (e.getClientes().containsKey(txt_usuario.getText())) {
             if (e.getClientes().get(txt_usuario.getText()).getContraseña().equals(txt_contraseña.getText())) {
-                BuscarVehiculo rg = new BuscarVehiculo(this.e, e.getClientes().get(txt_usuario.getText()));
+                BuscaVehiculo rg = new BuscaVehiculo(this.e, e.getClientes().get(txt_usuario.getText()));
                 rg.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(this, "Contraseña incorrecta");

@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaz;
+package grafico.administrador;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import clases.Empresa;
+import modelo.Empresa;
 
 /**
  * clase para dar de baja un cliente buscandolo en nuestro hashmap y

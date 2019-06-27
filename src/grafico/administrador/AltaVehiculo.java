@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaz;
+package grafico.administrador;
 
-import interfaz.AltaTurismo;
-import interfaz.AltaMotocicleta;
-import interfaz.AltaTodoterreno;
+import grafico.administrador.AltaTurismo;
+import grafico.administrador.AltaMotocicleta;
+import grafico.administrador.AltaTodoterreno;
 import java.awt.Image;
 import javax.swing.ImageIcon;
-import clases.Empresa;
+import modelo.Empresa;
 
 /**
  *interfaz para visualizar y elegir el tipo de vehiculo que queremos dar de alta

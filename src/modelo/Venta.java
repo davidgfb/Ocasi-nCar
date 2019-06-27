@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package clases;
+package modelo;
 
-import clases.Vehiculo;
-import clases.Cliente;
+import modelo.Vehiculo;
+import modelo.Cliente;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;

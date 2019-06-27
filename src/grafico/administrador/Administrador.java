@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaz;
+package grafico.administrador;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
-import clases.Empresa;
+import modelo.Empresa;
 
 /**
  * interfaz para que el administrador decida su siguiente tarea
  * @author david
  */
-public class VentanaAdmin extends javax.swing.JFrame {
+public class Administrador extends javax.swing.JFrame {
     //campos
     private Empresa e;
 
@@ -24,7 +24,7 @@ public class VentanaAdmin extends javax.swing.JFrame {
       * constructor
       * @param e empresa con la que estamos trabajando
       */
-    public VentanaAdmin(Empresa e) {
+    public Administrador(Empresa e) {
         initComponents();
         this.e=e;
         this.setTitle("Administrador");
@@ -140,7 +140,7 @@ public class VentanaAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_consultaActionPerformed
 
     private void ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ventasActionPerformed
-        Ventas rg = new Ventas(this.e);
+        VentanaVenta rg = new VentanaVenta(this.e);
         rg.setVisible(true);
     }//GEN-LAST:event_ventasActionPerformed
 

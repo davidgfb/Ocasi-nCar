@@ -3,45 +3,73 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaz;
+package grafico;
 
 import java.awt.Image;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import clases.Empresa;
-import clases.Vehiculo;
+import modelo.Cliente;
+import modelo.Empresa;
+import modelo.Vehiculo;
+import modelo.Venta;
 
 /**
- *interfaz para mostrar los vehiculos que cumplan las caracteristicas introducidas
+ * interfaz para que el usuario busque un vehiculo por marca y modelo y pueda
+ * comprarlo generandose y guardandose automaticamente una factura
+ *
  * @author david
  */
-public class Consulta extends javax.swing.JFrame {
+public class BuscaVehiculo extends javax.swing.JFrame {
 //campos
+
     private ArrayList<Vehiculo> mostrarVehiculos;
     private Empresa e;
     private int contador = 0;
+    private Cliente c;
 
     /**
-     * Creates new form Consulta
+     * Creates new form BuscarVehiculo
      */
     /**
      * constructor
+     *
      * @param e empresa con la que trabajamos
+     * @param c cliente el cual ha accedido a la pagina
      */
-    public Consulta(Empresa e) {
+    public BuscaVehiculo(Empresa e, Cliente c) {
         initComponents();
         this.e = e;
-        Image icon = new ImageIcon(getClass().getResource("logo.png")).getImage();
-        setIconImage(icon);
+        this.c = c;
         this.setTitle("Consulta de vehiculos");
         this.setLocation(700, 300);
         siguiente.setEnabled(false);
+    }//fin constructor
 
-    }//fin del constructor
-/**
- * metodo para mostrar el vehiculo correspondiente
- */
+    /**
+     * metodo para calcular el precio final del vehiculo aplicando el desceunto
+     * correpondiente dependiendo de la relacion del cliente con la empresa
+     *
+     * @return precio final del vehiculo
+     */
+    public double calcularPrecio() {
+        int precio = mostrarVehiculos.get(contador - 1).getPrecio();
+        if (c.getRelacion().equals("Familiar")) {
+            precio = (int) (precio * 0.90);
+        } else if (c.getRelacion().equals("Empleado")) {
+            precio = (int) (precio * 0.75);
+        }
+
+        return precio;
+    }//fin del metodo
+
+    /**
+     * metodo para mostrar el vehiculo correspondiente
+     */
     public void mostrarSiguiente() {
         if (contador < mostrarVehiculos.size()) {
             String infoCoche = "El color es: " + mostrarVehiculos.get(contador).getColor()
@@ -53,6 +81,7 @@ public class Consulta extends javax.swing.JFrame {
                     + "\n" + "Su potencia es: " + mostrarVehiculos.get(contador).getPotencia()
                     + "\n" + "El precio es: " + mostrarVehiculos.get(contador).getPrecio();
             txt_area.setText(infoCoche);
+            lbl_foto.setIcon(mostrarVehiculos.get(contador).getFoto());
             contador++;
         } else {
             JOptionPane.showMessageDialog(this, "No hay mas vehiculos disponibles");
@@ -70,25 +99,19 @@ public class Consulta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buscar = new javax.swing.JButton();
+        siguiente = new javax.swing.JButton();
+        lbl_foto = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txt_area = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txt_marca = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txt_modelo = new javax.swing.JTextField();
-        buscar = new javax.swing.JButton();
-        siguiente = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txt_area = new javax.swing.JTextArea();
-        todos = new javax.swing.JButton();
+        comprar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Busqueda de vehiculos :");
-
-        jLabel2.setText("Introduzca la marca");
-
-        jLabel3.setText("Introduzca el modelo");
 
         buscar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         buscar.setText("Buscar");
@@ -110,10 +133,18 @@ public class Consulta extends javax.swing.JFrame {
         txt_area.setRows(5);
         jScrollPane1.setViewportView(txt_area);
 
-        todos.setText("Mostrar todos los vehiculos");
-        todos.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Busqueda de vehiculos :");
+
+        jLabel2.setText("Introduzca la marca");
+
+        jLabel3.setText("Introduzca el modelo");
+
+        comprar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comprar.setText("Comprar");
+        comprar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                todosActionPerformed(evt);
+                comprarActionPerformed(evt);
             }
         });
 
@@ -122,40 +153,42 @@ public class Consulta extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(174, 607, Short.MAX_VALUE)
+                .addGap(391, 391, 391)
+                .addComponent(comprar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(siguiente)
                 .addGap(148, 148, 148))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(29, 29, 29)
-                            .addComponent(jLabel1)
-                            .addGap(133, 133, 133)
-                            .addComponent(todos))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(63, 63, 63)
-                            .addComponent(jLabel2)
-                            .addGap(35, 35, 35)
-                            .addComponent(txt_marca, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(72, 72, 72)
-                            .addComponent(jLabel3)
-                            .addGap(38, 38, 38)
-                            .addComponent(txt_modelo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(375, 375, 375)
-                            .addComponent(buscar))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(131, 131, 131)
+                        .addComponent(lbl_foto, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(63, 63, 63)
+                                .addComponent(jLabel2)
+                                .addGap(35, 35, 35)
+                                .addComponent(txt_marca, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(72, 72, 72)
+                                .addComponent(jLabel3)
+                                .addGap(38, 38, 38)
+                                .addComponent(txt_modelo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(375, 375, 375)
+                                .addComponent(buscar)))))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(todos))
-                .addGap(22, 22, 22)
+                .addComponent(jLabel1)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txt_marca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -164,9 +197,13 @@ public class Consulta extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(buscar)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                    .addComponent(lbl_foto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(46, 46, 46)
-                .addComponent(siguiente)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(siguiente)
+                    .addComponent(comprar))
                 .addGap(25, 25, 25))
         );
 
@@ -179,6 +216,7 @@ public class Consulta extends javax.swing.JFrame {
      * @param evt metodo sera ejecutado cuando el boton sea pulsado
      */
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
+
         mostrarVehiculos = new ArrayList<>();
         contador = 0;
         for (int i = 0; i < e.getVehiculos().size(); i++) {
@@ -190,13 +228,11 @@ public class Consulta extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "No hay vehiculos con estas caracteristicas");
         } else {
             siguiente.setEnabled(true);
-
             mostrarSiguiente();
         }
-
-
     }//GEN-LAST:event_buscarActionPerformed
 //fin del metodo
+
     /**
      * metodo para mostrar el vehiculo siguiente de nuestro ArrayList auxiliar
      *
@@ -207,30 +243,49 @@ public class Consulta extends javax.swing.JFrame {
     }//GEN-LAST:event_siguienteActionPerformed
 //fin del metodo
     /**
-     * metodo para mostrar todos los vehiculos dados de alta
-     * @param evt 
+     * metodo para comprar un vehiculo y asi retirarlo del arraylist de
+     * vehiculos este metodo nos genera una factura con los datos de la compra y
+     * la almacena en el arraylist de ventas
+     *
+     * @param evt
      */
-    private void todosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todosActionPerformed
-        mostrarVehiculos = e.getVehiculos();
-        contador = 0;
-        if (mostrarVehiculos.size() == 0) {
-            JOptionPane.showMessageDialog(this, "No hay vehiculos");
-        } else {
-            siguiente.setEnabled(true);
-
-            mostrarSiguiente();
+    private void comprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarActionPerformed
+        try {
+            int precio = mostrarVehiculos.get(contador - 1).getPrecio();
+            double preciofinal = calcularPrecio();
+            int año = Integer.valueOf(JOptionPane.showInputDialog("Introducir año de la compra: "));
+            int mes = Integer.valueOf(JOptionPane.showInputDialog("Introducir mes de la compra: "));
+            int dia = Integer.valueOf(JOptionPane.showInputDialog("Introducir dia de la compra: "));
+            Date fecha = new Date(año, mes, dia);
+            Venta v = new Venta(mostrarVehiculos.get(contador - 1), c, fecha, preciofinal);
+            e.getVentas().add(v);
+            e.guardarDatosVentas();
+            for (int i = 0; i < e.getVehiculos().size(); i++) {
+                if (mostrarVehiculos.get(contador - 1).getMatricula().equals(e.getVehiculos().get(i).getMatricula())) {
+                    e.getVehiculos().remove(i);
+                }
+            }
+            e.guardarDatosVehiculos();
+            v.generarFactura();
+            JOptionPane.showMessageDialog(this, "Vehiculo comprado con exito");
         }
-    }//GEN-LAST:event_todosActionPerformed
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Excepción: no ha seleccionado ningún vehículo", "Mensaje", JOptionPane.ERROR_MESSAGE);
+        }
+        
+
+    }//GEN-LAST:event_comprarActionPerformed
 //fin del metodo
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscar;
+    private javax.swing.JButton comprar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbl_foto;
     private javax.swing.JButton siguiente;
-    private javax.swing.JButton todos;
     private javax.swing.JTextArea txt_area;
     private javax.swing.JTextField txt_marca;
     private javax.swing.JTextField txt_modelo;
