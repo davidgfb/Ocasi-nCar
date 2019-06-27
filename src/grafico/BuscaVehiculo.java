@@ -5,71 +5,46 @@
  */
 package grafico;
 
-import java.awt.Image;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import modelo.Cliente;
 import modelo.Empresa;
 import modelo.Vehiculo;
 import modelo.Venta;
 
-/**
- * interfaz para que el usuario busque un vehiculo por marca y modelo y pueda
- * comprarlo generandose y guardandose automaticamente una factura
- *
- * @author david
- */
+
 public class BuscaVehiculo extends javax.swing.JFrame {
-//campos
+
 
     private ArrayList<Vehiculo> mostrarVehiculos;
     private Empresa e;
     private int contador = 0;
-    private Cliente c;
+    private Cliente cliente;
 
-    /**
-     * Creates new form BuscarVehiculo
-     */
-    /**
-     * constructor
-     *
-     * @param e empresa con la que trabajamos
-     * @param c cliente el cual ha accedido a la pagina
-     */
+    
     public BuscaVehiculo(Empresa e, Cliente c) {
         initComponents();
         this.e = e;
-        this.c = c;
+        this.cliente = c;
         this.setTitle("Consulta de vehiculos");
         this.setLocation(700, 300);
         siguiente.setEnabled(false);
-    }//fin constructor
+    }
 
-    /**
-     * metodo para calcular el precio final del vehiculo aplicando el desceunto
-     * correpondiente dependiendo de la relacion del cliente con la empresa
-     *
-     * @return precio final del vehiculo
-     */
+    
     public double calcularPrecio() {
         int precio = mostrarVehiculos.get(contador - 1).getPrecio();
-        if (c.getRelacion().equals("Familiar")) {
+        if (cliente.getRelacion().equals("Familiar")) {
             precio = (int) (precio * 0.90);
-        } else if (c.getRelacion().equals("Empleado")) {
+        } else if (cliente.getRelacion().equals("Empleado")) {
             precio = (int) (precio * 0.75);
         }
 
         return precio;
-    }//fin del metodo
+    }
 
-    /**
-     * metodo para mostrar el vehiculo correspondiente
-     */
+   
     public void mostrarSiguiente() {
         if (contador < mostrarVehiculos.size()) {
             String infoCoche = "El color es: " + mostrarVehiculos.get(contador).getColor()
@@ -88,7 +63,7 @@ public class BuscaVehiculo extends javax.swing.JFrame {
 
         }
 
-    }//fin del metodo
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -209,12 +184,7 @@ public class BuscaVehiculo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-/**
-     * metodo para crear un ArrayList auxiliar con solo los vehiculos que
-     * cumplan los criterios establecidos por el usuario
-     *
-     * @param evt metodo sera ejecutado cuando el boton sea pulsado
-     */
+
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
 
         mostrarVehiculos = new ArrayList<>();
@@ -231,24 +201,11 @@ public class BuscaVehiculo extends javax.swing.JFrame {
             mostrarSiguiente();
         }
     }//GEN-LAST:event_buscarActionPerformed
-//fin del metodo
 
-    /**
-     * metodo para mostrar el vehiculo siguiente de nuestro ArrayList auxiliar
-     *
-     * @param evt metodo sera ejecutado cuando el boton sea pulsado
-     */
     private void siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siguienteActionPerformed
         mostrarSiguiente();
     }//GEN-LAST:event_siguienteActionPerformed
-//fin del metodo
-    /**
-     * metodo para comprar un vehiculo y asi retirarlo del arraylist de
-     * vehiculos este metodo nos genera una factura con los datos de la compra y
-     * la almacena en el arraylist de ventas
-     *
-     * @param evt
-     */
+
     private void comprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarActionPerformed
         try {
             int precio = mostrarVehiculos.get(contador - 1).getPrecio();
@@ -257,7 +214,7 @@ public class BuscaVehiculo extends javax.swing.JFrame {
             int mes = Integer.valueOf(JOptionPane.showInputDialog("Introducir mes de la compra: "));
             int dia = Integer.valueOf(JOptionPane.showInputDialog("Introducir dia de la compra: "));
             Date fecha = new Date(año, mes, dia);
-            Venta v = new Venta(mostrarVehiculos.get(contador - 1), c, fecha, preciofinal);
+            Venta v = new Venta(mostrarVehiculos.get(contador - 1), cliente, fecha, preciofinal);
             e.getVentas().add(v);
             e.guardarDatosVentas();
             for (int i = 0; i < e.getVehiculos().size(); i++) {
@@ -275,7 +232,7 @@ public class BuscaVehiculo extends javax.swing.JFrame {
         
 
     }//GEN-LAST:event_comprarActionPerformed
-//fin del metodo
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscar;

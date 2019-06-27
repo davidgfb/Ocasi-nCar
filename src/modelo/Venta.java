@@ -13,22 +13,16 @@ import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * esta clase indica los atributos necesarios para crear una venta
- *
- * @author david
- */
+
 public class Venta implements Serializable {
 
-    //campos de la clase
+    
     private Vehiculo v;
     private Cliente c;
     private Date fecha;
     private double precio;
 
-    /**
-     * metodo para ganerar una factura de la venta de un vehiculo a un cliente
-     */
+    
     public void generarFactura() {
         try (FileWriter fw = new FileWriter(v.getMatricula() + ".txt")) {
             PrintWriter pw = new PrintWriter(fw);
@@ -49,27 +43,17 @@ public class Venta implements Serializable {
         } catch (IOException e) {
             System.out.println("Error E/S: " + e);
         }
-    }//fin del metodo
+    }
 
-    /**
-     * constructor de venta
-     *
-     * @param v define el vehiculo utilizado
-     * @param c define el cliente por el cual se ha accedido
-     * @param fecha define la fecha de la venta
-     * @param precio define el precio
-     */
+    
     public Venta(Vehiculo v, Cliente c, Date fecha, double precio) {
         this.v = v;
         this.c = c;
         this.fecha = fecha;
         this.precio = precio;
-    }//fin dek constructor
+    }
 
-    /**
-     * getter and setter de los atributos para poder acceder a los datos
-     * @return datos
-     */
+    
     public Vehiculo getV() {
         return v;
     }
@@ -101,5 +85,5 @@ public class Venta implements Serializable {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-//fin de los getter and setter
+
 }

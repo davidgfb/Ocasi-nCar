@@ -13,23 +13,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import modelo.Empresa;
 
-/**
- * interfaz para loggear o para registrase como usuario
- *
- * @author david
- */
+
 public class Menu extends javax.swing.JFrame {
 
-    //campos
+    
 
     private Empresa e;
 
-    /**
-     * Creates new form menu
-     */
-    /**
-     * conttructor
-     */
+    
     public Menu() {
         initComponents();
         this.e = new Empresa();
@@ -39,7 +30,7 @@ public class Menu extends javax.swing.JFrame {
         this.setTitle("Inicio");
         this.setLocation(700, 300);
 
-    }//fin constructor
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -119,23 +110,12 @@ public class Menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-/**
-     * metodo para abrir una ventana para registrar un nuevo usuario
-     *
-     * @param evt
-     */
+
     private void nuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoUsuarioActionPerformed
         Altausuario rg = new Altausuario(this.e);
         rg.setVisible(true);
     }//GEN-LAST:event_nuevoUsuarioActionPerformed
-//fin dek metodo
 
-    /**
-     * metodo para loggear en la aplicaccion que comprueba si el usuario esta
-     * registrado y la contraseña es correcta
-     *
-     * @param evt
-     */
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         if (txt_usuario.getText().equals("admin@ocasioncar.com") && (txt_contraseña.getText().equals("admin"))) {
             Administrador rg = new Administrador(this.e);
@@ -153,7 +133,7 @@ public class Menu extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_loginActionPerformed
-//fin del metodo
+
 
     /**
      * @param args the command line arguments
