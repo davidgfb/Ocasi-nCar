@@ -7,14 +7,10 @@ import java.io.Serializable;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/**
- * esta clase define los atributos que tiene cliente
- *
- * @author david
- */
+
 public class Cliente implements Serializable {
 
-    //Campos de la clase
+    
 
     private String nombre;
     private String dni;
@@ -23,16 +19,7 @@ public class Cliente implements Serializable {
     private String contraseña;
     private String telefono;
 
-    /**
-     *constructor de cliente
-     * @param nombre define el nombre del cliente
-     * @param dni define el dni del cliente
-     * @param relacion define la relacion del cliente con la empresa
-     * @param correo define el correo del cliente
-     * @param contraseña define la contaseña con la que el cliente accedera a su
-     * cuenta
-     * @param telefono define el telefono del cliente
-     */
+    
     public Cliente(String nombre, String dni, String relacion, String correo, String contraseña, String telefono) {
         this.nombre = nombre;
         this.dni = dni;
@@ -40,12 +27,9 @@ public class Cliente implements Serializable {
         this.correo = correo;
         this.contraseña = contraseña;
         this.telefono = telefono;
-    }//fin del constructor
+    }
 
-    /**
-     * getter and setter de los atributos para poder acceder a los datos
-     * @return datos
-     */
+    
     public String getNombre() {
         return nombre;
     }
@@ -93,6 +77,6 @@ public class Cliente implements Serializable {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-//fin de los getter and setter
+
 
 }

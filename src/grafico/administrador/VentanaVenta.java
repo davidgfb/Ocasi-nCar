@@ -13,14 +13,9 @@ import javax.swing.JOptionPane;
 import modelo.Empresa;
 import modelo.Venta;
 
-/**
- * interfaz para visualizar las ventas realizadas filtrandolas por fecha si se
- * quiere
- *
- * @author david
- */
+
 public class VentanaVenta extends javax.swing.JFrame {
-//campos
+
 
     private ArrayList<Venta> mostrarVentas;
     private int contador = 0;
@@ -29,11 +24,7 @@ public class VentanaVenta extends javax.swing.JFrame {
     /**
      * Creates new form Ventas
      */
-    /**
-     * constructor
-     *
-     * @param e empresa con la que estamos trabajando
-     */
+    
     public VentanaVenta(Empresa e) {
         initComponents();
         this.e = e;
@@ -42,11 +33,9 @@ public class VentanaVenta extends javax.swing.JFrame {
         this.setTitle("Consulta de ventas");
         this.setLocation(700, 300);
         siguiente.setEnabled(false);
-    }//fin constructor
+    }
 
-    /**
-     * metodo para mostrar la venta correspondiente
-     */
+    
     public void mostrarSiguiente() {
         if (contador < mostrarVentas.size()) {
             String infoVenta = "Vehiculo vendido: " + e.getVentas().get(contador).getV().getMarca()
@@ -64,7 +53,7 @@ public class VentanaVenta extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "No hay mas ventas efectuadas");
 
         }
-    }//fin del metodo
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -79,6 +68,7 @@ public class VentanaVenta extends javax.swing.JFrame {
         txt_area = new javax.swing.JTextArea();
         siguiente = new javax.swing.JButton();
         mostrar = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -100,27 +90,38 @@ public class VentanaVenta extends javax.swing.JFrame {
             }
         });
 
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grafico/logo.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(mostrar)
+                                .addGap(18, 18, 18)
+                                .addComponent(siguiente))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(188, 188, 188)
+                                .addComponent(jLabel11)))
+                        .addGap(0, 158, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(mostrar)
-                .addGap(18, 18, 18)
-                .addComponent(siguiente)
-                .addContainerGap(164, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(35, 35, 35)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(siguiente)
                     .addComponent(mostrar))
@@ -129,11 +130,7 @@ public class VentanaVenta extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-/**
-     * metodo para comprobar que hay ventas y mostrar la primera de ellas
-     *
-     * @param evt
-     */
+
     private void mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarActionPerformed
         mostrarVentas = e.getVentas();
         contador = 0;
@@ -146,19 +143,16 @@ public class VentanaVenta extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_mostrarActionPerformed
-//fin el metodo
 
-    /**
-     * metodo para visualizar la siguiente venta
-     *
-     * @param evt
-     */
+
+    
     private void siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siguienteActionPerformed
         mostrarSiguiente();
     }//GEN-LAST:event_siguienteActionPerformed
-//fin del metodo
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton mostrar;
     private javax.swing.JButton siguiente;

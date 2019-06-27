@@ -15,24 +15,16 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * en este clase crearemos los arrays y hashmap donde poder almacenar los datos
- * que se vayan introduciendo
- *
- * @author david
- */
+
 public class Empresa implements Serializable {
 
-    //Campos de la clase
+    
 
     private ArrayList<Vehiculo> vehiculos = new ArrayList<>();
     private HashMap<String, Cliente> clientes = new HashMap<>();
     private ArrayList<Venta> ventas = new ArrayList<>();
 
-    /**
-     * getter and setter de los atributos para poder acceder a los datos
-     * @return datos
-     */
+    
     public ArrayList<Venta> getVentas() {
         return ventas;
     }
@@ -59,15 +51,7 @@ public class Empresa implements Serializable {
     public void setClientes(HashMap<String, Cliente> clientes) {
         this.clientes = clientes;
     }
-//cierre de los getter and setter
 
-    /**
-     * Metodo para saber si el vehiculo ya esta registrado o no
-     *
-     * @param matricula define la matricula del vehiculo que se quiere comprobar
-     * @return boolean
-     *
-     */
 
     public boolean estaRegistrado(String matricula) {
         for (int i = 0; i < vehiculos.size(); i++) {
@@ -76,12 +60,9 @@ public class Empresa implements Serializable {
             }
         }
         return false;
-    }//cierre del metodo
+    }
 
-    /**
-     * Metodos para cargar y guardar los datos en su respectivo array/hashmap lo
-     * que nos permite que los datos no desaparezcan al cerrar el programa
-     */
+    
     public void cargarDatosClientes() {
         try (
                 FileInputStream archivo = new FileInputStream("usuarios.dat")) {
@@ -167,6 +148,6 @@ public class Empresa implements Serializable {
             System.out.println("Error: " + e.getMessage());
         }
     }
-//cierre de los metodos de guardar y cargar
 
-}//Cierre de la clase empresa
+
+}

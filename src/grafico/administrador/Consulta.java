@@ -12,12 +12,9 @@ import javax.swing.JOptionPane;
 import modelo.Empresa;
 import modelo.Vehiculo;
 
-/**
- *interfaz para mostrar los vehiculos que cumplan las caracteristicas introducidas
- * @author david
- */
+
 public class Consulta extends javax.swing.JFrame {
-//campos
+
     private ArrayList<Vehiculo> mostrarVehiculos;
     private Empresa e;
     private int contador = 0;
@@ -25,10 +22,7 @@ public class Consulta extends javax.swing.JFrame {
     /**
      * Creates new form Consulta
      */
-    /**
-     * constructor
-     * @param e empresa con la que trabajamos
-     */
+    
     public Consulta(Empresa e) {
         initComponents();
         this.e = e;
@@ -38,10 +32,8 @@ public class Consulta extends javax.swing.JFrame {
         this.setLocation(700, 300);
         siguiente.setEnabled(false);
 
-    }//fin del constructor
-/**
- * metodo para mostrar el vehiculo correspondiente
- */
+    }
+
     public void mostrarSiguiente() {
         if (contador < mostrarVehiculos.size()) {
             String infoCoche = "El color es: " + mostrarVehiculos.get(contador).getColor()
@@ -59,7 +51,7 @@ public class Consulta extends javax.swing.JFrame {
 
         }
 
-    }//fin del metodo
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -80,18 +72,19 @@ public class Consulta extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_area = new javax.swing.JTextArea();
         todos = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Busqueda de vehiculos :");
 
-        jLabel2.setText("Introduzca la marca");
+        jLabel2.setText("Marca");
 
-        jLabel3.setText("Introduzca el modelo");
+        jLabel3.setText("Modelo");
 
         buscar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        buscar.setText("Buscar");
+        buscar.setText("Busca");
         buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buscarActionPerformed(evt);
@@ -110,30 +103,38 @@ public class Consulta extends javax.swing.JFrame {
         txt_area.setRows(5);
         jScrollPane1.setViewportView(txt_area);
 
-        todos.setText("Mostrar todos los vehiculos");
+        todos.setText("Muestra vehículos");
         todos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 todosActionPerformed(evt);
             }
         });
 
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grafico/logo.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(174, 607, Short.MAX_VALUE)
+                .addGap(49, 49, 49)
+                .addComponent(todos)
+                .addGap(145, 145, 145)
+                .addComponent(buscar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(siguiente)
                 .addGap(148, 148, 148))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel11)
+                        .addGap(188, 188, 188)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                             .addGap(29, 29, 29)
-                            .addComponent(jLabel1)
-                            .addGap(133, 133, 133)
-                            .addComponent(todos))
+                            .addComponent(jLabel1))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(63, 63, 63)
                             .addComponent(jLabel2)
@@ -142,42 +143,39 @@ public class Consulta extends javax.swing.JFrame {
                             .addGap(72, 72, 72)
                             .addComponent(jLabel3)
                             .addGap(38, 38, 38)
-                            .addComponent(txt_modelo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(375, 375, 375)
-                            .addComponent(buscar))))
-                .addContainerGap(78, Short.MAX_VALUE))
+                            .addComponent(txt_modelo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(252, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(todos))
-                .addGap(22, 22, 22)
+                .addComponent(jLabel1)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txt_marca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(txt_modelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(buscar)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                .addGap(46, 46, 46)
-                .addComponent(siguiente)
-                .addGap(25, 25, 25))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                        .addGap(46, 46, 46))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(siguiente)
+                    .addComponent(buscar)
+                    .addComponent(todos))
+                .addGap(23, 23, 23))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-/**
-     * metodo para crear un ArrayList auxiliar con solo los vehiculos que
-     * cumplan los criterios establecidos por el usuario
-     *
-     * @param evt metodo sera ejecutado cuando el boton sea pulsado
-     */
+
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
         mostrarVehiculos = new ArrayList<>();
         contador = 0;
@@ -196,20 +194,12 @@ public class Consulta extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_buscarActionPerformed
-//fin del metodo
-    /**
-     * metodo para mostrar el vehiculo siguiente de nuestro ArrayList auxiliar
-     *
-     * @param evt metodo sera ejecutado cuando el boton sea pulsado
-     */
+
+    
     private void siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siguienteActionPerformed
         mostrarSiguiente();
     }//GEN-LAST:event_siguienteActionPerformed
-//fin del metodo
-    /**
-     * metodo para mostrar todos los vehiculos dados de alta
-     * @param evt 
-     */
+
     private void todosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todosActionPerformed
         mostrarVehiculos = e.getVehiculos();
         contador = 0;
@@ -221,11 +211,12 @@ public class Consulta extends javax.swing.JFrame {
             mostrarSiguiente();
         }
     }//GEN-LAST:event_todosActionPerformed
-//fin del metodo
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;

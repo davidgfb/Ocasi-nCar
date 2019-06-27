@@ -11,31 +11,23 @@ import javax.swing.JOptionPane;
 import modelo.Cliente;
 import modelo.Empresa;
 
-/**
- * interfaz para dar de alta un usuario
- *
- * @author david
- */
+
 public class Altausuario extends javax.swing.JFrame {
 
-    //campos
+    
 
     private Empresa e;
 
     /**
      * Creates new form registro_usurario
      */
-    /**
-     * constructor
-     *
-     * @param e empresa con la que trabajamos
-     */
+    
     public Altausuario(Empresa e) {
         this.e = e;
         initComponents();
         this.setTitle("Nuevo usuario");
         this.setLocation(240, 400);
-    }//fin constructor
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,6 +51,7 @@ public class Altausuario extends javax.swing.JFrame {
         txt_telefono = new javax.swing.JTextField();
         registrar = new javax.swing.JButton();
         txt_contraseña = new javax.swing.JPasswordField();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -92,12 +85,14 @@ public class Altausuario extends javax.swing.JFrame {
             }
         });
 
-        registrar.setText("Registrar");
+        registrar.setText("Registrate");
         registrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registrarActionPerformed(evt);
             }
         });
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grafico/logo.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,6 +111,8 @@ public class Altausuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(105, 105, 105)
+                        .addComponent(jLabel11)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -156,21 +153,22 @@ public class Altausuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txt_relacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(64, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel11)
+                        .addGap(55, 55, 55))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-/**
-     * metodo que recoge los datos introducidos y crea un nuevo objeto cliente
-     * con ellos y almacena dicho cliente en el hasmmap
-     *
-     * @param evt
-     */
+
     private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
         String nombre = txt_nombre.getText();
         String dni = txt_dni.getText();
@@ -188,43 +186,32 @@ public class Altausuario extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_registrarActionPerformed
-//fin del metodo
 
-    /**
-     * metodo utilizado para que en el apartado nombre el usuario no pueda
-     * escribir numeros
-     *
-     * @param evt metodo sera activado cuando una tecla sea pulsada dentro del
-     * text field de nombre
-     */
+
+    
     private void txt_nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombreKeyTyped
         char c = evt.getKeyChar();
         if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c < ' ' || c > ' ')) {
             evt.consume();
         }
-        //ponemos una condicion para que en el nombre no se puedan poner numeros
+        
     }//GEN-LAST:event_txt_nombreKeyTyped
-//fin del metodo
 
-    /**
-     * metodo utilizado para que en el apartado nombre el usuario no pueda
-     * escribir caracteres
-     *
-     * @param evt metodo sera activado cuando una tecla sea pulsada dentro del
-     * text field de telefono
-     */
+
+    
     private void txt_telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_telefonoKeyTyped
         char c = evt.getKeyChar();
         if (c < '0' || c > '9') {
             evt.consume();
         }
-        //ponemos una condicion para que en el apartado de telefono no se puedan poner caracteres
+        
     }//GEN-LAST:event_txt_telefonoKeyTyped
-//fin del metodo
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

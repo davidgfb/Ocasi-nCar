@@ -9,27 +9,21 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import modelo.Empresa;
 
-/**
- * interfaz para que el administrador decida su siguiente tarea
- * @author david
- */
+
 public class Administrador extends javax.swing.JFrame {
-    //campos
+    
     private Empresa e;
 
     /**
      * Creates new form VentanaAdmin
      */
-    /**
-      * constructor
-      * @param e empresa con la que estamos trabajando
-      */
+    
     public Administrador(Empresa e) {
         initComponents();
         this.e=e;
         this.setTitle("Administrador");
         this.setLocation(700,300);
-    }//fin constructor
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,11 +39,12 @@ public class Administrador extends javax.swing.JFrame {
         consulta = new javax.swing.JButton();
         ventas = new javax.swing.JButton();
         bajaCliente = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         alta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        alta.setText("Dar de alta un vehiculo");
+        alta.setText("Alta vehiculo");
         alta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 altaActionPerformed(evt);
@@ -57,7 +52,7 @@ public class Administrador extends javax.swing.JFrame {
         });
 
         bajaVehiculo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        bajaVehiculo.setText("Dar de baja un vehiculo");
+        bajaVehiculo.setText("Baja vehiculo");
         bajaVehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bajaVehiculoActionPerformed(evt);
@@ -65,7 +60,7 @@ public class Administrador extends javax.swing.JFrame {
         });
 
         consulta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        consulta.setText("Consulta de vehiculos");
+        consulta.setText("Consulta vehiculos");
         consulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 consultaActionPerformed(evt);
@@ -73,7 +68,7 @@ public class Administrador extends javax.swing.JFrame {
         });
 
         ventas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        ventas.setText("Consulta de ventas");
+        ventas.setText("Consulta ventas");
         ventas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ventasActionPerformed(evt);
@@ -81,12 +76,14 @@ public class Administrador extends javax.swing.JFrame {
         });
 
         bajaCliente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        bajaCliente.setText("Dar de baja un cliente");
+        bajaCliente.setText("Baja cliente");
         bajaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bajaClienteActionPerformed(evt);
             }
         });
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grafico/logo.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,21 +93,28 @@ public class Administrador extends javax.swing.JFrame {
                 .addGap(87, 87, 87)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bajaCliente)
-                    .addComponent(bajaVehiculo)
                     .addComponent(alta)
-                    .addComponent(consulta)
-                    .addComponent(ventas))
-                .addContainerGap(86, Short.MAX_VALUE))
+                    .addComponent(ventas)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bajaVehiculo)
+                            .addComponent(consulta))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(alta)
-                .addGap(18, 18, 18)
-                .addComponent(bajaVehiculo)
-                .addGap(18, 18, 18)
-                .addComponent(consulta)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(alta)
+                        .addGap(18, 18, 18)
+                        .addComponent(bajaVehiculo)
+                        .addGap(18, 18, 18)
+                        .addComponent(consulta))
+                    .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addComponent(ventas)
                 .addGap(18, 18, 18)
@@ -120,10 +124,7 @@ public class Administrador extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-/**
- * metodos para ir hacia otras ventanas dependiendo de lo que decida el administradors
- * @param evt 
- */
+
     private void altaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaActionPerformed
         AltaVehiculo rg = new AltaVehiculo(this.e);
         rg.setVisible(true);
@@ -148,13 +149,14 @@ public class Administrador extends javax.swing.JFrame {
         BajaCliente rg = new BajaCliente(this.e);
         rg.setVisible(true);
     }//GEN-LAST:event_bajaClienteActionPerformed
-//fin de los metodos
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton alta;
     private javax.swing.JButton bajaCliente;
     private javax.swing.JButton bajaVehiculo;
     private javax.swing.JButton consulta;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton ventas;
     // End of variables declaration//GEN-END:variables
 }

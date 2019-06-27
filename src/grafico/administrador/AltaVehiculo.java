@@ -12,22 +12,15 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import modelo.Empresa;
 
-/**
- *interfaz para visualizar y elegir el tipo de vehiculo que queremos dar de alta
- * @author david
- */
+
 public class AltaVehiculo extends javax.swing.JFrame {
-    //campos
+    
     private Empresa e;
 
     /**
      * Creates new form AltaVehiculo
      */
-    /**
-     * constructor
-     *
-     * @param e es la empresa sobre la que estamos trabajando
-     */
+    
     public AltaVehiculo(Empresa e) {
         initComponents();
         this.e=e;
@@ -49,11 +42,12 @@ public class AltaVehiculo extends javax.swing.JFrame {
         motocicleta = new javax.swing.JButton();
         tursimo = new javax.swing.JButton();
         todoterreno = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         motocicleta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        motocicleta.setText("Dar de alta una motocicleta");
+        motocicleta.setText("Alta motocicleta");
         motocicleta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 motocicletaActionPerformed(evt);
@@ -61,7 +55,7 @@ public class AltaVehiculo extends javax.swing.JFrame {
         });
 
         tursimo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        tursimo.setText("Dar de alta un turismo");
+        tursimo.setText("Alta turismo");
         tursimo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tursimoActionPerformed(evt);
@@ -69,12 +63,14 @@ public class AltaVehiculo extends javax.swing.JFrame {
         });
 
         todoterreno.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        todoterreno.setText("Dar de alta un todoterreno");
+        todoterreno.setText("Alta todoterreno");
         todoterreno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 todoterrenoActionPerformed(evt);
             }
         });
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grafico/logo.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -83,14 +79,20 @@ public class AltaVehiculo extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(tursimo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(todoterreno)
-                            .addComponent(motocicleta))))
-                .addContainerGap(54, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addComponent(tursimo))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(todoterreno)
+                                    .addComponent(motocicleta))))
+                        .addGap(0, 136, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel11)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,16 +103,14 @@ public class AltaVehiculo extends javax.swing.JFrame {
                 .addComponent(tursimo)
                 .addGap(36, 36, 36)
                 .addComponent(todoterreno)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel11)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-/**
- * metodos para llevar al administrador a diferentes ventanas segun elija el tipo de vehiculo que
- * quiere dar de alta
- * @param evt los metodos seran activados cuando sus respectivos botones sean presionados
- */
+
     private void motocicletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motocicletaActionPerformed
         AltaMotocicleta rg = new AltaMotocicleta(this.e);
         rg.setVisible(true);
@@ -129,6 +129,7 @@ public class AltaVehiculo extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JButton motocicleta;
     private javax.swing.JButton todoterreno;
     private javax.swing.JButton tursimo;

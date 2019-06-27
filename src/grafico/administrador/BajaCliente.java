@@ -10,26 +10,17 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import modelo.Empresa;
 
-/**
- * clase para dar de baja un cliente buscandolo en nuestro hashmap y
- * eliminandolo
- *
- * @author david
- */
+
 public class BajaCliente extends javax.swing.JFrame {
 
-    //camposq
+    
 
     private Empresa e;
 
     /**
      * Creates new form BajaCliente
      */
-    /**
-     * constructor
-     *
-     * @param e es la empresa sobre la que estamos trabajando
-     */
+    
     public BajaCliente(Empresa e) {
         initComponents();
         this.e = e;
@@ -38,7 +29,7 @@ public class BajaCliente extends javax.swing.JFrame {
         this.setTitle("Baja de clientes");
         this.setLocation(700, 300);
 
-    }//fin constructor
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,33 +43,37 @@ public class BajaCliente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txt_correo = new javax.swing.JTextField();
         bajaCliente = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Correo");
+        jLabel1.setText("Email");
 
-        bajaCliente.setText("Dar de Baja");
+        bajaCliente.setText("Baja");
         bajaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bajaClienteActionPerformed(evt);
             }
         });
 
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grafico/logo.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                        .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(bajaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(64, 64, 64)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addComponent(bajaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel11)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,18 +82,20 @@ public class BajaCliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
-                .addComponent(bajaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(bajaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(84, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel11)
+                        .addGap(43, 43, 43))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-/**
-     * metodo para buscar un cliente en nuestro hashmap y eliminarlo
-     *
-     * @param evt el motodo se activara cuando el boton sea pulsado
-     */
+
     private void bajaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bajaClienteActionPerformed
 
         String correo = txt_correo.getText();
@@ -114,11 +111,12 @@ public class BajaCliente extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_bajaClienteActionPerformed
-//fin del metodo
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bajaCliente;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JTextField txt_correo;
     // End of variables declaration//GEN-END:variables
 }

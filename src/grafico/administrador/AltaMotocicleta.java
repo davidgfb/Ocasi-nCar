@@ -14,12 +14,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import modelo.Empresa;
 import modelo.Motocicleta;
 
-/**
- *interfaz para dar de alta una motocicleta
- * @author david
- */
+
 public class AltaMotocicleta extends javax.swing.JFrame {
-    //campos 
+    
     private Empresa e;
     private FileNameExtensionFilter filtro = new FileNameExtensionFilter("","jpg");
     private ImageIcon foto;
@@ -28,10 +25,7 @@ public class AltaMotocicleta extends javax.swing.JFrame {
     /**
      * Creates new form AltaMotocicleta
      */
-    /**
-     * constructor 
-     * @param e es la empresa sobre la que estamos trabajando
-     */
+    
     public AltaMotocicleta(Empresa e) {
         this.e=e;
         initComponents();
@@ -39,7 +33,7 @@ public class AltaMotocicleta extends javax.swing.JFrame {
         setIconImage(icon);
         this.setTitle("Alta de motocicletas");
         this.setLocation(700,300);
-    }//fin constructor
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -72,12 +66,13 @@ public class AltaMotocicleta extends javax.swing.JFrame {
         txt_precio = new javax.swing.JTextField();
         alta_moto = new javax.swing.JButton();
         labelImage = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Tipo");
 
-        jLabel2.setText("Cilindrada (cc)");
+        jLabel2.setText("Cilindrada");
 
         jLabel3.setText("Matricula");
 
@@ -89,18 +84,20 @@ public class AltaMotocicleta extends javax.swing.JFrame {
 
         jLabel7.setText("Color");
 
-        jLabel8.setText("Fecha Matriculacion (año)");
+        jLabel8.setText("Año Matriculacion");
 
         jLabel9.setText("Kilometros");
 
         jLabel10.setText("Precio");
 
-        alta_moto.setText("Dar de alta");
+        alta_moto.setText("Alta");
         alta_moto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 alta_motoActionPerformed(evt);
             }
         });
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grafico/logo.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -139,7 +136,7 @@ public class AltaMotocicleta extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel7)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel8)
@@ -155,6 +152,8 @@ public class AltaMotocicleta extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(alta_moto, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(118, 118, 118)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44))
         );
@@ -199,17 +198,17 @@ public class AltaMotocicleta extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addComponent(txt_potencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(3, 3, 3)
-                        .addComponent(alta_moto, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(alta_moto, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(22, 22, 22))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-/**
- * metodo para dar del alta una motocicleta confirmarndo que no esta ya dada de alta y luego
- * añadiendola al ArrayList de vehiculos
- * @param evt es el evento por el cual se activara el metodo, cuando se pulse el boton alta_moto
- */
+
     private void alta_motoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alta_motoActionPerformed
         try {
             String tipo = txt_tipo.getText();
@@ -252,6 +251,7 @@ public class AltaMotocicleta extends javax.swing.JFrame {
     private javax.swing.JButton alta_moto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

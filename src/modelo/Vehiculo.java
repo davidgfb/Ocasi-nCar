@@ -9,14 +9,10 @@ import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.io.Serializable;
 import javax.swing.Icon;
 
-/**
- * esta clase define los parametros que deben de tener todos los vehiculos
- *
- * @author david
- */
+
 public class Vehiculo implements Serializable {
 
-    //Campos de la clase
+    
 
     private String matricula;
     private String marca;
@@ -28,19 +24,7 @@ public class Vehiculo implements Serializable {
     private Icon foto;
     private int precio;
 
-    /**
-     * constructor para vehiculo
-     *
-     * @param matricula define la matricula del vehiculo
-     * @param marca define la marca del vehiculo
-     * @param modelo define el modelo del vehiculo
-     * @param potencia define la potencia del vehiculo
-     * @param color define el color del vehiculo
-     * @param fechamat define el año de matriculacion del vehiculo
-     * @param kilometros define los kilometros del vehiculo
-     * @param foto define la foto del vehiculo
-     * @param precio define el precio del vehiculo
-     */
+    
 
     public Vehiculo(String matricula, String marca, String modelo, int potencia, String color, int fechamat, int kilometros, Icon foto, int precio) {
         this.matricula = matricula;
@@ -52,14 +36,7 @@ public class Vehiculo implements Serializable {
         this.kilometros = kilometros;
         this.foto = foto;
         this.precio = precio;
-    }//fin del constructor
-
-    /**
-     * Inicio de los metodos getter and setter para acceder a los atributos de
-     * vehiculo
-     *
-     * @return datos
-     */
+    }
     public String getMatricula() {
         return matricula;
     }
@@ -131,7 +108,7 @@ public class Vehiculo implements Serializable {
     public void setPrecio(int precio) {
         this.precio = precio;
     }
-//fin de los getter and setter
+
 
     @Override
 
