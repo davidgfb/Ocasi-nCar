@@ -53,7 +53,6 @@ public class BajaVehiculo extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txt_matricula = new javax.swing.JTextField();
         confirmar = new javax.swing.JButton();
-        lbl_foto = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_area = new javax.swing.JTextArea();
         baja = new javax.swing.JButton();
@@ -101,9 +100,7 @@ public class BajaVehiculo extends javax.swing.JFrame {
                                 .addGap(27, 27, 27)
                                 .addComponent(txt_matricula, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbl_foto, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
+                        .addGap(289, 289, 289)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
@@ -115,9 +112,7 @@ public class BajaVehiculo extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(txt_matricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                    .addComponent(lbl_foto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -152,7 +147,7 @@ public class BajaVehiculo extends javax.swing.JFrame {
      */
     private void bajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bajaActionPerformed
         if (e.getVehiculos().size() == 0) {
-            JOptionPane.showMessageDialog(this, "No hay vehciulos");
+            JOptionPane.showMessageDialog(this, "No hay vehículos");
         } else {
             for (int i = 0; i < e.getVehiculos().size(); i++) {
                 if (e.getVehiculos().get(i).getMatricula().equals(txt_matricula.getText())) {
@@ -165,7 +160,6 @@ public class BajaVehiculo extends javax.swing.JFrame {
                             + "\n" + "El color es: " + e.getVehiculos().get(i).getPotencia()
                             + "\n" + "El color es: " + e.getVehiculos().get(i).getPrecio();
                     txt_area.setText(infoCoche);
-                    lbl_foto.setIcon(e.getVehiculos().get(i).getFoto());
                     confirmar.setEnabled(true);
 
                 } else {
@@ -181,7 +175,6 @@ public class BajaVehiculo extends javax.swing.JFrame {
     private javax.swing.JButton confirmar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbl_foto;
     private javax.swing.JTextArea txt_area;
     private javax.swing.JTextField txt_matricula;
     // End of variables declaration//GEN-END:variables

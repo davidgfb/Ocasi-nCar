@@ -44,7 +44,7 @@ public class Venta implements Serializable {
             pw.println("Datos del comprador: ");
             pw.println("Nombre: " + c.getNombre());
             pw.println("NIF: " + c.getDni());
-            pw.println("Relación con el concesionario o trabajador del mismo: " + c.getRelacion());
+            pw.println("Relación con el concesionario: " + c.getRelacion());
             pw.close();
         } catch (IOException e) {
             System.out.println("Error E/S: " + e);

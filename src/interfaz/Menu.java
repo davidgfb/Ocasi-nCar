@@ -30,8 +30,6 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
-        Image icon = new ImageIcon(getClass().getResource("logo.png")).getImage();
-        setIconImage(icon);
         this.e = new Empresa();
         e.cargarDatosClientes();
         e.cargarDatosVehiculos();

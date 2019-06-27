@@ -53,7 +53,6 @@ public class Consulta extends javax.swing.JFrame {
                     + "\n" + "Su potencia es: " + mostrarVehiculos.get(contador).getPotencia()
                     + "\n" + "El precio es: " + mostrarVehiculos.get(contador).getPrecio();
             txt_area.setText(infoCoche);
-            lbl_foto.setIcon(mostrarVehiculos.get(contador).getFoto());
             contador++;
         } else {
             JOptionPane.showMessageDialog(this, "No hay mas vehiculos disponibles");
@@ -78,7 +77,6 @@ public class Consulta extends javax.swing.JFrame {
         txt_modelo = new javax.swing.JTextField();
         buscar = new javax.swing.JButton();
         siguiente = new javax.swing.JButton();
-        lbl_foto = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_area = new javax.swing.JTextArea();
         todos = new javax.swing.JButton();
@@ -128,30 +126,26 @@ public class Consulta extends javax.swing.JFrame {
                 .addComponent(siguiente)
                 .addGap(148, 148, 148))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(lbl_foto, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(jLabel1)
-                                .addGap(133, 133, 133)
-                                .addComponent(todos))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(63, 63, 63)
-                                .addComponent(jLabel2)
-                                .addGap(35, 35, 35)
-                                .addComponent(txt_marca, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(72, 72, 72)
-                                .addComponent(jLabel3)
-                                .addGap(38, 38, 38)
-                                .addComponent(txt_modelo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(375, 375, 375)
-                                .addComponent(buscar)))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(29, 29, 29)
+                            .addComponent(jLabel1)
+                            .addGap(133, 133, 133)
+                            .addComponent(todos))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(63, 63, 63)
+                            .addComponent(jLabel2)
+                            .addGap(35, 35, 35)
+                            .addComponent(txt_marca, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(72, 72, 72)
+                            .addComponent(jLabel3)
+                            .addGap(38, 38, 38)
+                            .addComponent(txt_modelo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(375, 375, 375)
+                            .addComponent(buscar))))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -170,9 +164,7 @@ public class Consulta extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(buscar)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                    .addComponent(lbl_foto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                 .addGap(46, 46, 46)
                 .addComponent(siguiente)
                 .addGap(25, 25, 25))
@@ -237,7 +229,6 @@ public class Consulta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbl_foto;
     private javax.swing.JButton siguiente;
     private javax.swing.JButton todos;
     private javax.swing.JTextArea txt_area;

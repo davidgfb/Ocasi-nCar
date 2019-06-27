@@ -113,7 +113,7 @@ public class Empresa implements Serializable {
 
     public void cargarDatosVehiculos() {
         try (
-                FileInputStream archivo = new FileInputStream("vehiculoss.dat")) {
+                FileInputStream archivo = new FileInputStream("vehiculos.dat")) {
             ObjectInputStream input = new ObjectInputStream(archivo);
             this.vehiculos = (ArrayList) input.readObject();
         } catch (IOException ioe) {
@@ -128,7 +128,7 @@ public class Empresa implements Serializable {
     public void guardarDatosVehiculos() {
         try {
 
-            FileOutputStream archivo = new FileOutputStream("vehiculoss.dat");
+            FileOutputStream archivo = new FileOutputStream("vehiculos.dat");
             ObjectOutputStream output = new ObjectOutputStream(archivo);
             output.writeObject(vehiculos);
             archivo.close();
@@ -141,7 +141,7 @@ public class Empresa implements Serializable {
 
     public void cargarDatosVentas() {
         try (
-                FileInputStream archivo = new FileInputStream("ventass.dat")) {
+                FileInputStream archivo = new FileInputStream("ventas.dat")) {
             ObjectInputStream input = new ObjectInputStream(archivo);
             this.ventas = (ArrayList) input.readObject();
         } catch (IOException ioe) {
@@ -156,7 +156,7 @@ public class Empresa implements Serializable {
     public void guardarDatosVentas() {
         try {
 
-            FileOutputStream archivo = new FileOutputStream("ventass.dat");
+            FileOutputStream archivo = new FileOutputStream("ventas.dat");
             ObjectOutputStream output = new ObjectOutputStream(archivo);
             output.writeObject(ventas);
             archivo.close();

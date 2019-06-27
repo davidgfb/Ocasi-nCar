@@ -33,8 +33,6 @@ public class Registro_usuario extends javax.swing.JFrame {
     public Registro_usuario(Empresa e) {
         this.e = e;
         initComponents();
-        Image icon = new ImageIcon(getClass().getResource("logo.png")).getImage();
-        setIconImage(icon);
         this.setTitle("Nuevo usuario");
         this.setLocation(240, 400);
     }//fin constructor

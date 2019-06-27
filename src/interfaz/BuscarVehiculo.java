@@ -44,8 +44,6 @@ public class BuscarVehiculo extends javax.swing.JFrame {
     public BuscarVehiculo(Empresa e, Cliente c) {
         initComponents();
         this.e = e;
-        Image icon = new ImageIcon(getClass().getResource("logo.png")).getImage();
-        setIconImage(icon);
         this.c = c;
         this.setTitle("Consulta de vehiculos");
         this.setLocation(700, 300);
@@ -86,7 +84,7 @@ public class BuscarVehiculo extends javax.swing.JFrame {
             lbl_foto.setIcon(mostrarVehiculos.get(contador).getFoto());
             contador++;
         } else {
-            JOptionPane.showMessageDialog(this, "No hay mas vehicu  los disponibles");
+            JOptionPane.showMessageDialog(this, "No hay mas vehiculos disponibles");
 
         }
 
@@ -252,23 +250,29 @@ public class BuscarVehiculo extends javax.swing.JFrame {
      * @param evt
      */
     private void comprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprarActionPerformed
-        int precio = mostrarVehiculos.get(contador - 1).getPrecio();
-        double preciofinal = calcularPrecio();
-        int año = Integer.valueOf(JOptionPane.showInputDialog("Introducir año de la compra: "));
-        int mes = Integer.valueOf(JOptionPane.showInputDialog("Introducir mes de la compra: "));
-        int dia = Integer.valueOf(JOptionPane.showInputDialog("Introducir dia de la compra: "));
-        Date fecha = new Date(año, mes, dia);
-        Venta v = new Venta(mostrarVehiculos.get(contador - 1), c, fecha, preciofinal);
-        e.getVentas().add(v);
-        e.guardarDatosVentas();
-        for (int i = 0; i < e.getVehiculos().size(); i++) {
-            if (mostrarVehiculos.get(contador - 1).getMatricula().equals(e.getVehiculos().get(i).getMatricula())) {
-                e.getVehiculos().remove(i);
+        try {
+            int precio = mostrarVehiculos.get(contador - 1).getPrecio();
+            double preciofinal = calcularPrecio();
+            int año = Integer.valueOf(JOptionPane.showInputDialog("Introducir año de la compra: "));
+            int mes = Integer.valueOf(JOptionPane.showInputDialog("Introducir mes de la compra: "));
+            int dia = Integer.valueOf(JOptionPane.showInputDialog("Introducir dia de la compra: "));
+            Date fecha = new Date(año, mes, dia);
+            Venta v = new Venta(mostrarVehiculos.get(contador - 1), c, fecha, preciofinal);
+            e.getVentas().add(v);
+            e.guardarDatosVentas();
+            for (int i = 0; i < e.getVehiculos().size(); i++) {
+                if (mostrarVehiculos.get(contador - 1).getMatricula().equals(e.getVehiculos().get(i).getMatricula())) {
+                    e.getVehiculos().remove(i);
+                }
             }
+            e.guardarDatosVehiculos();
+            v.generarFactura();
+            JOptionPane.showMessageDialog(this, "Vehiculo comprado con exito");
         }
-        e.guardarDatosVehiculos();
-        v.generarFactura();
-        JOptionPane.showMessageDialog(this, "Vehiculo comprado con exito");
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Excepción: no ha seleccionado ningún vehículo", "Mensaje", JOptionPane.ERROR_MESSAGE);
+        }
+        
 
     }//GEN-LAST:event_comprarActionPerformed
 //fin del metodo

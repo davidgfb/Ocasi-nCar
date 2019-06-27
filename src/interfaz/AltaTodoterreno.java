@@ -56,8 +56,6 @@ public class AltaTodoterreno extends javax.swing.JFrame {
         txt_precio = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txt_traccion = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        añadirImagen = new javax.swing.JButton();
         labelImage = new javax.swing.JLabel();
         alta_todoterreno = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -86,15 +84,6 @@ public class AltaTodoterreno extends javax.swing.JFrame {
         jLabel8.setText("Precio");
 
         jLabel9.setText("Traccion");
-
-        jLabel10.setText("Foto");
-
-        añadirImagen.setText("Añadir foto");
-        añadirImagen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                añadirImagenActionPerformed(evt);
-            }
-        });
 
         alta_todoterreno.setText("Dar de Alta");
         alta_todoterreno.addActionListener(new java.awt.event.ActionListener() {
@@ -155,19 +144,14 @@ public class AltaTodoterreno extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(89, 89, 89)
                                 .addComponent(alta_todoterreno, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txt_cambio, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(118, 118, 118)
-                                .addComponent(añadirImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_cambio, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_combustible, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel9)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(txt_color, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(161, 161, 161)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel10)
-                                        .addComponent(jLabel14)))))
+                                    .addComponent(jLabel14))))
                         .addGap(69, 69, 69)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(labelImage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -222,18 +206,11 @@ public class AltaTodoterreno extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel13)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txt_combustible, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel10)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel12)
-                                    .addComponent(txt_cambio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(añadirImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txt_combustible, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(txt_cambio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(alta_todoterreno, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -244,66 +221,50 @@ public class AltaTodoterreno extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-/**
-     * metodo para escoger foto para añadirla al objeto y mostrarla
-     *
-     * @param evt el metodo se llevara a cabo cuando el boton de añadir imagen
-     * sea presionado
-     */
-    private void añadirImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirImagenActionPerformed
-        JFileChooser buscador = new JFileChooser();
-        buscador.setFileFilter(filtro);
-        int opcion = buscador.showOpenDialog(this);
-        if(opcion==JFileChooser.APPROVE_OPTION){
-            String fil = buscador.getSelectedFile().getPath();
-            ImageIcon imagen;
-            ImageIcon newimagen = new ImageIcon(fil);
-            Image img = newimagen.getImage();
-            Image newimg = img.getScaledInstance(240, 162,java.awt.Image.SCALE_SMOOTH);
-            imagen = new ImageIcon(newimg);
-            this.foto = imagen;
-            labelImage.setIcon(imagen);
 
-        }
-    }//GEN-LAST:event_añadirImagenActionPerformed
-/**
+ /**
  * metodo para dar del alta un todoterreno confirmarndo que no esta ya dada de alta y luego
  * añadiendola al ArrayList de vehiculos
  * @param evt es el evento por el cual se activara el metodo, cuando se pulse el boton alta_todoterreno
  */
     private void alta_todoterrenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alta_todoterrenoActionPerformed
-        String combustible = txt_combustible.getText();
-        String cambio = txt_cambio.getText();
-        String plazas = txt_plazas.getText();
-        String traccion = txt_traccion.getText();
-        String matricula = txt_matricula.getText();
-        String marca = txt_marca.getText();
-        String modelo = txt_modelo.getText();
-        int potencia = Integer.valueOf(txt_potencia.getText());
-        String color = txt_color.getText();
-        int fecha_mat = Integer.valueOf(txt_fechamat.getText());
-        int kilometros = Integer.valueOf(txt_kilometros.getText());
-        int precio = Integer.valueOf(txt_precio.getText());
+        try {
+            String combustible = txt_combustible.getText();
+            String cambio = txt_cambio.getText();
+            String plazas = txt_plazas.getText();
+            String traccion = txt_traccion.getText();
+            String matricula = txt_matricula.getText();
+            String marca = txt_marca.getText();
+            String modelo = txt_modelo.getText();
+            int potencia = Integer.valueOf(txt_potencia.getText());
+            String color = txt_color.getText();
+            int fecha_mat = Integer.valueOf(txt_fechamat.getText());
+            int kilometros = Integer.valueOf(txt_kilometros.getText());
+            int precio = Integer.valueOf(txt_precio.getText());
 
-        Turismo t = new Turismo(traccion, combustible, cambio, plazas, matricula, marca, modelo, potencia, color, fecha_mat, kilometros, foto, precio);
-        if (e.estaRegistrado(matricula)) {
-            JOptionPane.showMessageDialog(this, "Vehiculo ya registrado");
-        }
-        else{
-            e.getVehiculos().add(t);
-            e.guardarDatosVehiculos();
-            JOptionPane.showMessageDialog(this, "Vehiculo regitrado correctamente");
+            Turismo t = new Turismo(traccion, combustible, cambio, plazas, matricula, marca, modelo, potencia, color, fecha_mat, kilometros, foto, precio);
+            if (e.estaRegistrado(matricula)) {
+                JOptionPane.showMessageDialog(this, "Vehiculo ya registrado");
+            }
+            else{
+                e.getVehiculos().add(t);
+                e.guardarDatosVehiculos();
+                JOptionPane.showMessageDialog(this, "Vehiculo regitrado correctamente");
 
+            }
         }
+        
+        catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Error al dar de alta.", "Mensaje", JOptionPane.ERROR_MESSAGE);
+                
+                }
        
     }//GEN-LAST:event_alta_todoterrenoActionPerformed
 
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton alta_todoterreno;
-    private javax.swing.JButton añadirImagen;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;

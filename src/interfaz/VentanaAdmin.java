@@ -5,10 +5,6 @@
  */
 package interfaz;
 
-import interfaz.Consulta;
-import interfaz.BajaVehiculo;
-import interfaz.BajaCliente;
-import interfaz.AltaVehiculo;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import clases.Empresa;
@@ -31,8 +27,6 @@ public class VentanaAdmin extends javax.swing.JFrame {
     public VentanaAdmin(Empresa e) {
         initComponents();
         this.e=e;
-        Image icon = new ImageIcon(getClass().getResource("logo.png")).getImage();
-        setIconImage(icon);
         this.setTitle("Administrador");
         this.setLocation(700,300);
     }//fin constructor

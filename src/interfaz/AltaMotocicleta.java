@@ -70,9 +70,7 @@ public class AltaMotocicleta extends javax.swing.JFrame {
         txt_kilometros = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         txt_precio = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
         alta_moto = new javax.swing.JButton();
-        añadirImagen = new javax.swing.JButton();
         labelImage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -97,19 +95,10 @@ public class AltaMotocicleta extends javax.swing.JFrame {
 
         jLabel10.setText("Precio");
 
-        jLabel11.setText("Foto");
-
         alta_moto.setText("Dar de alta");
         alta_moto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 alta_motoActionPerformed(evt);
-            }
-        });
-
-        añadirImagen.setText("Añadir Imagen");
-        añadirImagen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                añadirImagenActionPerformed(evt);
             }
         });
 
@@ -147,7 +136,6 @@ public class AltaMotocicleta extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
                             .addComponent(jLabel10)
-                            .addComponent(jLabel11)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel7)))
@@ -157,14 +145,12 @@ public class AltaMotocicleta extends javax.swing.JFrame {
                         .addComponent(jLabel8)
                         .addGap(46, 46, 46)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txt_kilometros, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-                            .addComponent(txt_fechamat, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_color, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addComponent(txt_precio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(añadirImagen))
-                .addGap(67, 67, 67))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txt_kilometros, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                        .addComponent(txt_fechamat, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txt_color, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(txt_precio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(76, 76, 76))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(alta_moto, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -201,8 +187,6 @@ public class AltaMotocicleta extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(añadirImagen)
                     .addComponent(txt_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,7 +199,7 @@ public class AltaMotocicleta extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addComponent(txt_potencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(3, 3, 3)
-                        .addComponent(alta_moto, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)))
+                        .addComponent(alta_moto, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)))
                 .addGap(22, 22, 22))
         );
 
@@ -227,62 +211,47 @@ public class AltaMotocicleta extends javax.swing.JFrame {
  * @param evt es el evento por el cual se activara el metodo, cuando se pulse el boton alta_moto
  */
     private void alta_motoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alta_motoActionPerformed
-        String tipo = txt_tipo.getText();
-        String cilindrada = txt_cilindrada.getText();
-        String matricula = txt_matricula.getText();
-        String marca = txt_marca.getText();
-        String modelo = txt_modelo.getText();
-        int potencia = Integer.valueOf(txt_potencia.getText());
-        String color = txt_color.getText();
-        int fecha_mat = Integer.valueOf(txt_fechamat.getText());
-        int kilometros = Integer.valueOf(txt_kilometros.getText());
-        int precio = Integer.valueOf(txt_precio.getText());
-        
-        Motocicleta m = new Motocicleta(tipo, cilindrada, matricula, marca, modelo, potencia, color, fecha_mat, kilometros, foto, precio);
-        if (e.estaRegistrado(matricula)) {
-            JOptionPane.showMessageDialog(this, "Vehiculo ya registrado");
-        }
-        else{
-            e.getVehiculos().add(m);
-            e.guardarDatosVehiculos();
+        try {
+            String tipo = txt_tipo.getText();
+            String cilindrada = txt_cilindrada.getText();
+            String matricula = txt_matricula.getText();
+            String marca = txt_marca.getText();
+            String modelo = txt_modelo.getText();
+            int potencia = Integer.valueOf(txt_potencia.getText());
+            String color = txt_color.getText();
+            int fecha_mat = Integer.valueOf(txt_fechamat.getText());
+            int kilometros = Integer.valueOf(txt_kilometros.getText());
+            int precio = Integer.valueOf(txt_precio.getText());
+
+            Motocicleta m = new Motocicleta(tipo, cilindrada, matricula, marca, modelo, potencia, color, fecha_mat, kilometros, foto, precio);
+            if (e.estaRegistrado(matricula)) {
+                JOptionPane.showMessageDialog(this, "Vehiculo ya registrado");
+            }
+            else{
+                e.getVehiculos().add(m);
+                e.guardarDatosVehiculos();
             
             JOptionPane.showMessageDialog(this, "Vehiculo regitrado correctamente");
             
+            }
         }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Excepcion: no ha introducido datos", "Mensaje", JOptionPane.ERROR_MESSAGE);
+                
+        }
+        
         
         
         
         
     }//GEN-LAST:event_alta_motoActionPerformed
-/**
- * metodo para escoger foto para añadirla al objeto y mostrarla 
- * @param evt el metodo se llevara a cabo cuando el boton de añadir imagen sea presionado
- */
-    private void añadirImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirImagenActionPerformed
-        JFileChooser buscador = new JFileChooser();
-        buscador.setFileFilter(filtro);
-        int opcion = buscador.showOpenDialog(this);
-        if(opcion==JFileChooser.APPROVE_OPTION){
-            String fil = buscador.getSelectedFile().getPath();
-                ImageIcon imagen;
-            ImageIcon newimagen = new ImageIcon(fil);
-            Image img = newimagen.getImage();
-            Image newimg = img.getScaledInstance(173, 130,java.awt.Image.SCALE_SMOOTH);
-            imagen = new ImageIcon(newimg);
-            this.foto = imagen;
-            labelImage.setIcon(imagen);
-            
-        }
-    }//GEN-LAST:event_añadirImagenActionPerformed
 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton alta_moto;
-    private javax.swing.JButton añadirImagen;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
